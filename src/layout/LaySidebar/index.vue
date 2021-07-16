@@ -10,6 +10,7 @@
   >
     <n-layout-sider
       :style="{
+        zIndex: 999,
         minHeight: '100%',
         boxShadow: '2px 0 6px var(--border-color)'
       }"

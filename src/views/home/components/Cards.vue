@@ -3,7 +3,7 @@
     <n-gi class="padding-tb-5">
       <n-card title="访问量" size="small" class="card-box" :bordered="false">
         <template #header-extra>
-          <n-tag >日</n-tag>
+          <n-tag type="primary">日</n-tag>
         </template>
         <div class="card-cont">
           <div class="num">25,848</div>

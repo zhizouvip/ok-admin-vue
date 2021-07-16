@@ -6,7 +6,7 @@
       <!--  头部   -->
       <n-layout-header
         position="absolute"
-        style="height: 64px; overflow: hidden"
+        style="height: 64px; overflow: hidden; z-index: 9"
         :native-scrollbar="false"
         :inverted="layConfig.headerInverted"
         bordered
@@ -15,7 +15,11 @@
       </n-layout-header>
 
       <!-- tag栏 -->
-      <n-layout-content position="absolute" style="height: 48px; top: 64px; left: 0; right: 0">
+      <n-layout-content
+        v-if="layConfig.tagShow"
+        position="absolute"
+        style="height: 48px; left: 0; top: 64px; right: 0;"
+      >
         <lay-tag></lay-tag>
       </n-layout-content>
 
@@ -23,8 +27,14 @@
       <n-layout-content
         class="layout-main"
         position="absolute"
-        style="top: 112px; bottom: 0; background: #f0f2f5"
         :native-scrollbar="false"
+        :style="{
+          bottom: 0,
+          zIndex: 8,
+          transition: 'top .25s',
+          top: layConfig.tagShow ? '112px' : '64px',
+          background: '#f0f2f5'
+        }"
       >
         <lay-main></lay-main>
       </n-layout-content>
@@ -33,52 +43,52 @@
 </template>
 
 <script lang="ts">
-  import { useStore } from 'vuex';
-  import { defineComponent, provide, reactive, ref } from 'vue';
-  import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider } from 'naive-ui';
-  import LayHeader from './LayHeader/index.vue';
-  import LaySidebar from './LaySidebar/index.vue';
-  import LayTag from './LayTag/index.vue';
-  import LayMain from './LayMain/index.vue';
+import { useStore } from 'vuex';
+import { defineComponent, provide, reactive, ref } from 'vue';
+import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider } from 'naive-ui';
+import LayHeader from './LayHeader/index.vue';
+import LaySidebar from './LaySidebar/index.vue';
+import LayTag from './LayTag/index.vue';
+import LayMain from './LayMain/index.vue';
 
-  export default defineComponent({
-    name: 'Layout',
-    components: {
-      LayMain,
-      LayTag,
-      LaySidebar,
-      LayHeader,
-      NLayout,
-      NLayoutHeader,
-      NLayoutContent,
-      NLayoutSider
-    },
-    setup(props, superContext) {
-      const store = useStore();
-      const routerShow = ref(false);
-      const layConfig = store.getters['admin/layConfigGetter'];
-      const mobileOptions = reactive({
-        isMobile: false, // 是否处于移动端
-        showMobileSlidebar: false // 显示和隐藏移动端的Slidebar
-      });
-      provide('mobileOptions', mobileOptions);
+export default defineComponent({
+  name: 'Layout',
+  components: {
+    LayMain,
+    LayTag,
+    LaySidebar,
+    LayHeader,
+    NLayout,
+    NLayoutHeader,
+    NLayoutContent,
+    NLayoutSider
+  },
+  setup(props, superContext) {
+    const store = useStore();
+    const routerShow = ref(false);
+    const layConfig = store.getters['admin/layConfigGetter'];
+    const mobileOptions = reactive({
+      isMobile: false, // 是否处于移动端
+      showMobileSlidebar: false // 显示和隐藏移动端的Slidebar
+    });
+    provide('mobileOptions', mobileOptions);
 
-      return {
-        routerShow,
-        layConfig
-      };
-    }
-  });
+    return {
+      routerShow,
+      layConfig
+    };
+  }
+});
 </script>
 
 <style lang="scss">
-  @import './styles/layout.scss';
+@import './styles/layout.scss';
 
-  .layout-main {
-    .n-scrollbar-container,
-    .n-scrollbar-content {
-      width: 100%;
-      min-height: 100%;
-    }
+.layout-main {
+  .n-scrollbar-container,
+  .n-scrollbar-content {
+    width: 100%;
+    min-height: 100%;
   }
+}
 </style>

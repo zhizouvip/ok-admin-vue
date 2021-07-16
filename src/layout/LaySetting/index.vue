@@ -12,6 +12,7 @@
         <div class="setting-box">
           <set-theme />
           <set-navigation />
+          <set-other />
         </div>
       </n-scrollbar>
     </n-drawer-content>
@@ -19,31 +20,33 @@
 </template>
 
 <script lang="ts">
-  import { SettingsOutline } from '@vicons/ionicons5';
-  import { defineComponent, ref } from 'vue';
-  import { NDrawer, NDrawerContent, NScrollbar } from 'naive-ui';
-  import SetNavigation from './SetNavigation.vue';
-  import SetTheme from './SetTheme.vue';
-  export default defineComponent({
-    name: 'LaySetting',
-    components: {
-      NDrawer,
-      NDrawerContent,
-      NScrollbar,
-      SetTheme,
-      SetNavigation,
-      SettingsOutline
-    },
-    setup() {
-      return {
-        show: ref(false)
-      };
-    }
-  });
+import { SettingsOutline } from '@vicons/ionicons5';
+import { defineComponent, ref } from 'vue';
+import { NDrawer, NDrawerContent, NScrollbar } from 'naive-ui';
+import SetNavigation from './components/SetNavigation.vue';
+import SetTheme from './components/SetTheme.vue';
+import SetOther from './components/SetOther.vue';
+export default defineComponent({
+  name: 'LaySetting',
+  components: {
+    NDrawer,
+    NDrawerContent,
+    NScrollbar,
+    SetTheme,
+    SetOther,
+    SetNavigation,
+    SettingsOutline
+  },
+  setup() {
+    return {
+      show: ref(false)
+    };
+  }
+});
 </script>
 
 <style lang="scss" scoped>
-  .setting-box {
-    padding: 16px 24px;
-  }
+.setting-box {
+  padding: 16px 24px;
+}
 </style>

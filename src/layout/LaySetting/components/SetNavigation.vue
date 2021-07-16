@@ -14,7 +14,7 @@
           暗色侧边栏
         </n-tooltip>
         <div v-show="layConfig.sidebarInverted" class="checked">
-          <n-icon color="#18a058" size="10">
+          <n-icon class="checked-color" size="10">
             <Ellipse />
           </n-icon>
         </div>
@@ -30,7 +30,7 @@
           亮色侧边栏
         </n-tooltip>
         <div v-show="!layConfig.sidebarInverted" class="checked">
-          <n-icon color="#18a058" size="10">
+          <n-icon class="checked-color" size="10">
             <Ellipse />
           </n-icon>
         </div>
@@ -50,7 +50,7 @@
           亮色顶栏
         </n-tooltip>
         <div v-show="!layConfig.headerInverted" class="checked">
-          <n-icon color="#18a058" size="10">
+          <n-icon class="checked-color" size="10">
             <Ellipse />
           </n-icon>
         </div>
@@ -67,7 +67,7 @@
           暗色顶栏
         </n-tooltip>
         <div v-show="layConfig.headerInverted" class="checked">
-          <n-icon color="#18a058" size="10">
+          <n-icon class="checked-color" size="10">
             <Ellipse />
           </n-icon>
         </div>
@@ -77,52 +77,55 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  import { useStore } from 'vuex';
-  import navThemeDark from './svg/nav-theme-dark.svg';
-  import navThemeLight from './svg/nav-theme-light.svg';
-  import headerThemeDark from './svg/header-theme-dark.svg';
-  import { EllipsisVertical, Ellipse } from '@vicons/ionicons5';
-  import { NTooltip, NDrawer, NDrawerContent, NGrid, NGi, NIcon, NDivider } from 'naive-ui';
-  export default defineComponent({
-    name: 'SetNavigation',
-    components: {
-      EllipsisVertical,
-      Ellipse,
-      NTooltip,
-      NDrawer,
-      NDrawerContent,
-      NGrid,
-      NGi,
-      NIcon,
-      NDivider
-    },
-    setup() {
-      const store = useStore();
-      const layConfig = store.getters['admin/layConfigGetter'];
-      return {
-        layConfig,
-        navThemeDark,
-        navThemeLight,
-        headerThemeDark
-      };
-    }
-  });
+import { defineComponent } from 'vue';
+import { useStore } from 'vuex';
+import navThemeDark from '../svg/nav-theme-dark.svg';
+import navThemeLight from '../svg/nav-theme-light.svg';
+import headerThemeDark from '../svg/header-theme-dark.svg';
+import { EllipsisVertical, Ellipse } from '@vicons/ionicons5';
+import { NTooltip, NDrawer, NDrawerContent, NGrid, NGi, NIcon, NDivider } from 'naive-ui';
+export default defineComponent({
+  name: 'SetNavigation',
+  components: {
+    EllipsisVertical,
+    Ellipse,
+    NTooltip,
+    NDrawer,
+    NDrawerContent,
+    NGrid,
+    NGi,
+    NIcon,
+    NDivider
+  },
+  setup() {
+    const store = useStore();
+    const layConfig = store.getters['admin/layConfigGetter'];
+    return {
+      layConfig,
+      navThemeDark,
+      navThemeLight,
+      headerThemeDark
+    };
+  }
+});
 </script>
 
 <style lang="scss" scoped>
-  .setting-btn {
-    padding: 5px;
-  }
-  .thenme {
-    padding-bottom: 10px;
-  }
-  .thenme-checkbox,
-  .checked {
-    display: flex;
-    justify-content: center;
-  }
-  .thenme-checkbox {
-    padding-bottom: 5px;
-  }
+.setting-btn {
+  padding: 5px;
+}
+.thenme {
+  padding-bottom: 10px;
+}
+.thenme-checkbox,
+.checked {
+  display: flex;
+  justify-content: center;
+}
+.thenme-checkbox {
+  padding-bottom: 5px;
+}
+.checked-color {
+  color: var(--primary-color);
+}
 </style>

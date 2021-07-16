@@ -1,5 +1,5 @@
 <template>
-  <div class="lay-tag-box">
+  <div class="lay-tag-box lay-hairline--bottom">
     <n-scrollbar
       style="flex: 1"
       ref="scrollbar"

@@ -4,7 +4,8 @@ const state: any = {
   layConfig: {
     sidebarInverted: true, // 侧边栏是否暗色主题
     headerInverted: false, // 顶部栏是否暗色主题
-    collapsed: false // 是否收缩菜单
+    collapsed: false, // 是否收缩菜单
+    tagShow: true // 是否显示tag
   }
 };
 

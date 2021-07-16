@@ -5,7 +5,7 @@
     </p>
     <p align="center">
         <img src="https://img.shields.io/badge/vue-%3E%3D3.1.0-brightgreen">
-        <img src="https://img.shields.io/badge/vite-%3E%3D2.3.0-brightgreen">
+        <img src="https://img.shields.io/badge/vite-%3E%3D2.4.0-brightgreen">
         <img src="https://img.shields.io/badge/NaiveUI-%3E%3D2.15.0-brightgreen">
     </p>
     <p align="center">
@@ -57,18 +57,19 @@ yarn lint
 
 | 依赖包      | 版本    |
 | ----------- | ------- |
+| vite        | ^2.4.0 |
 | vue         | ^3.1.0  |
-| vuex        | ^4.0.2  |
-| vue-router  | ^4.0.9  |
+| vuex        | ^4.0.0  |
+| vue-router  | ^4.0.0  |
 | axios       | ^0.21.1 |
-| naive-ui    | ^2.14.0 |
-| sass        | ^1.32.0 |
-| sass-loader | ^10.0.0 |
+| naive-ui    | ^2.15.0 |
+| sass        | ^1.35.0 |
+| sass-loader | ^12.1.0 |
+
 
 ### 开发环境
 
 | 依赖包 | 版本   |
 | ------ | ------ |
-| vite   | ^2.3.7 |
 | npm    | 6.9.0  |
 | yarn   | 1.22.4 |
