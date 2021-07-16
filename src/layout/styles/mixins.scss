@@ -1,0 +1,5 @@
+@mixin percolate($val: color) {
+    transition-duration: .3s;
+    transition-property: $val;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

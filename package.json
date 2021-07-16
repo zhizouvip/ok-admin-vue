@@ -1,0 +1,64 @@
+{
+  "name": "ok-admin-vue",
+  "version": "0.0.1",
+  "author": {
+    "name": "ok-admin",
+    "email": "super-wudibo@foxmail.com",
+    "url": "http://wudibo.gitee.io/ok-admin-vue"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev-staging": "vite --mode staging",
+    "build": "vue-tsc --noEmit && vite build",
+    "build-admin": "vue-tsc --noEmit && vite build --mode ok-admin-vue",
+    "build-staging": "vue-tsc --noEmit && vite build --mode staging",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@antv/g2": "^4.1.20",
+    "@vicons/ionicons5": "^0.10.0",
+    "axios": "^0.21.1",
+    "naive-ui": "^2.15.5",
+    "vfonts": "^0.1.0",
+    "vue": "^3.1.4",
+    "vue-i18n": "^9.1.6",
+    "vue-router": "^4.0.10",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/nprogress": "^0.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "@vitejs/plugin-vue": "^1.2.5",
+    "@vitejs/plugin-vue-jsx": "^1.1.6",
+    "@vue/compiler-sfc": "^3.1.4",
+    "autoprefixer": "^10.3.0",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.13.0",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
+    "sass": "^1.35.1",
+    "sass-loader": "^12.1.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.4.2",
+    "vue-eslint-parser": "^7.8.0",
+    "vue-tsc": "^0.2.0"
+  },
+  "keywords": [
+    "vue",
+    "naive-ui",
+    "ok-admin",
+    "vue3",
+    "ts",
+    "tsx",
+    "admin",
+    "typescript"
+  ],
+  "license": "MIT",
+  "homepage": "http://wudibo.gitee.io/ok-admin-vue",
+  "engines": {
+    "node": "^12 || >=14"
+  }
+}
