@@ -10,6 +10,7 @@
       <n-input />
     </div>
   </div>
+  <div>个人中心</div>
 </template>
 <script lang="ts">
 import { ref, defineComponent } from 'vue';

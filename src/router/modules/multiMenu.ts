@@ -1,4 +1,4 @@
-import { OptionsOutline } from '@vicons/ionicons5';
+import { TrailSignOutline } from '@vicons/ionicons5';
 import Layout from '@/layout/index.vue';
 import IFrameView from '@/layout/IFrameView.vue';
 import { RouterView } from 'vue-router';
@@ -14,40 +14,59 @@ export default {
   path: '/multi',
   component: Layout as unknown as Component,
   meta: {
-    title: '多级菜单',
-    icon: OptionsOutline
+    title: '工具',
+    icon: TrailSignOutline
   },
+
   children: [
     {
       path: 'menu-one',
       name: 'menu-one',
-      component: componentLinkView('https://v3.cn.vuejs.org/'),
       meta: {
-        title: 'VUE3官网'
+        title: '外部链接',
+        href: 'https://gitee.com/zhizous'
       }
     },
     {
-      path: 'menu-naive-ui',
-      name: 'menu-naive-ui',
-      component: componentLinkView('https://www.naiveui.com/zh-CN/os-theme'),
+      path: 'frame',
+      name: 'frame',
+      component: RouterView,
       meta: {
-        title: 'NaiveUI官网'
-      }
-    },
-    {
-      path: 'menu-gitee',
-      name: 'menu-gitee',
-      component: componentLinkView('https://gitee.com/zhizous'),
-      meta: {
-        title: '码云地址'
-      }
+        title: '内嵌网页'
+      },
+      children: [
+        {
+          path: 'vue3',
+          name: 'vue3',
+          component: componentLinkView('https://v3.cn.vuejs.org/'),
+          meta: {
+            title: 'VUE3官网'
+          }
+        },
+        {
+          path: 'naive-ui',
+          name: 'naive-ui',
+          component: componentLinkView('https://www.naiveui.com/zh-CN/os-theme'),
+          meta: {
+            title: 'NaiveUI官网'
+          }
+        },
+        {
+          path: 'gitee',
+          name: 'gitee',
+          component: componentLinkView('https://gitee.com/zhizous'),
+          meta: {
+            title: '码云地址'
+          }
+        }
+      ]
     },
     {
       path: 'menu-three',
       name: 'menu-three',
       component: RouterView,
       meta: {
-        title: '菜单项'
+        title: '多级菜单'
       },
       children: [
         {

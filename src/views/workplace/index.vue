@@ -17,7 +17,7 @@
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 const store = useStore();
-const hello = ref('控制台');
+const hello = ref('工作台');
 const foo = ref('bar');
 const headerKeep = () => {
   foo.value = 'dsafasd' + Math.random() * 100;

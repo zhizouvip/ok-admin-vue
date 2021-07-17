@@ -132,7 +132,7 @@ export default defineComponent({
 }
 .header-right {
   display: flex;
-  padding: 0 18px;
+  padding: 0 6px;
   align-items: center;
   justify-content: flex-end;
 }

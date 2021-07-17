@@ -1,9 +1,11 @@
+/**
+ * 路由守卫
+ */
+
 import type { Router } from 'vue-router';
 import store from '@/store/store.ts';
 
-/**
- * 添加keepAlive缓存
- */
+// 添加keepAlive缓存
 function addKeepAlive(route: any) {
   if (route.meta && route.meta.keepAlive) {
     store.commit(
@@ -13,9 +15,6 @@ function addKeepAlive(route: any) {
   }
 }
 
-/***
- * 路由守卫
- */
 export default function routerGuard(router: Router) {
   /**前置守卫*/
   router.beforeEach(async (to, from, next) => {

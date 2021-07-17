@@ -50,7 +50,15 @@ import { ref, reactive, watchEffect, defineComponent, inject } from 'vue';
 import LayDrawer from './LayDrawer.vue';
 import { NLayoutSider, NImage, NMenu, NSpace, NSwitch } from 'naive-ui';
 import { useMenu } from './menuOptions';
-
+function isURL(urlStr: string) {
+  const regular =
+    /^\b(((https?|ftp):\/\/)?[-a-z0-9]+(\.[-a-z0-9]+)*\.(?:com|edu|gov|int|mil|net|org|biz|info|name|museum|asia|coop|aero|[a-z][a-z]|((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d))\b(\/[-a-z0-9_:\@&?=+,.!\/~%\$]*)?)$/i;
+  if (regular.test(urlStr)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 export default defineComponent({
   name: 'LaySidebar',
   components: {
@@ -95,7 +103,14 @@ export default defineComponent({
       },
       handleUpdateValue: (route: any) => {
         mobileOptions.showMobileSlidebar = false;
-        router.push(route);
+        if (isURL(route)) {
+          const link = document.createElement('a');
+          link.href = route;
+          link.target = '_blank';
+          link.click();
+        } else {
+          router.push(route);
+        }
       }
     };
   }

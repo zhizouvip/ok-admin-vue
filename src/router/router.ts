@@ -1,68 +1,70 @@
 import { Component } from 'vue';
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import Layout from '@/layout/index.vue';
-import { NewspaperOutline, WarningOutline } from '@vicons/ionicons5';
-import { StarBorderRound } from '@/icon/material-icon/index.ts';
+import {
+  SpeedometerOutline,
+  TimerOutline,
+  HomeOutline,
+  CloudyOutline,
+  CloudyNightOutline,
+  StarOutline,
+  ColorPaletteOutline,
+  WarningOutline
+} from '@vicons/ionicons5';
+import multiMenu from './modules/multiMenu.ts'; // 多级菜单
+
 import routerComponent from './utils/routerComponent.ts';
-import multiMenu from './utils/multiMenu.ts';
+import routerReload from './utils/routerReload.vue';
 import routerGuard from './utils/routerGuard.ts';
 
+// meta菜单设置的选项说明
 export type IMeta = {
   title?: string; // 页面标题
   tagHidden?: boolean; // 是否需要显示在tab上
   keepAlive?: boolean; // 是否缓存页面
+  hidden?: boolean; // 是否不显示在左侧菜单栏上
   icon?: Component; // 菜单图标
-  affix?: boolean; // 在tags是否一直悬挂不被关闭
-  hidden?: boolean; // 是否不显示在菜单栏上
+  affix?: boolean; // 初始在tags是否一直悬挂不被关闭
+  href?: string; // 跳转到外部链接的地址(设置了此项点击将会跳转到其他网站)
 };
+
+// 是否是白天
+const isDayTime = new Date().getHours() < 18;
 
 export const asyncRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    redirect: '/dashboard/control',
+    component: routerReload
+  },
+  {
+    path: '/dashboard',
     component: Layout as unknown as Component,
-    redirect: '/home',
+    redirect: '/dashboard/control',
+    meta: {
+      title: 'Dashboard', // 页面标题
+      icon: TimerOutline // 图标
+    },
     children: [
       {
-        path: '/home',
-        name: 'home',
-        component: routerComponent(() => import('@/views/home/home.vue')),
+        path: 'control',
+        name: 'control',
+        component: routerComponent(() => import('@/views/control/index.vue')),
         meta: {
-          title: '首页', // 页面标题
+          title: '控制台', // 页面标题
           keepAlive: true, // 是否缓存页面
-          icon: StarBorderRound, // 图标
+          icon: HomeOutline, // 图标
           affix: true //在tags是否一直悬挂不被关闭
         }
-      }
-    ]
-  },
-
-  {
-    path: '/control',
-    component: Layout as unknown as Component,
-    children: [
+      },
       {
-        path: '',
-        name: 'control',
-        component: routerComponent(() => import('@/views/control/control.vue')),
+        path: 'workplace',
+        name: 'workplace',
+        component: routerComponent(() => import('@/views/workplace/index.vue')),
         meta: {
-          title: '控制台',
+          title: '工作台',
           keepAlive: true,
-          icon: StarBorderRound
-        }
-      }
-    ]
-  },
-  {
-    path: '/user',
-    component: Layout as unknown as Component,
-    children: [
-      {
-        path: '',
-        name: 'user',
-        component: routerComponent(() => import('@/views/user/user.vue')),
-        meta: {
-          title: '个人中心',
-          icon: StarBorderRound
+          icon: isDayTime ? CloudyOutline : CloudyNightOutline
         }
       }
     ]
@@ -74,7 +76,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     redirect: '/form/basic-form',
     meta: {
       title: '表单',
-      icon: NewspaperOutline
+      icon: ColorPaletteOutline
     },
     children: [
       {
@@ -82,8 +84,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         name: 'basic-form',
         component: routerComponent(() => import('@/views/form/basic-form.vue')),
         meta: {
-          title: '基础表单',
-          icon: StarBorderRound
+          title: '基础表单'
         }
       },
       {
@@ -91,8 +92,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         name: 'advanced-form',
         component: routerComponent(() => import('@/views/form/advanced-form.vue')),
         meta: {
-          title: '高级表单',
-          icon: StarBorderRound
+          title: '高级表单'
         }
       },
       {
@@ -100,8 +100,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         name: 'step-form',
         component: routerComponent(() => import('@/views/form/advanced-form.vue')),
         meta: {
-          title: '分步表单',
-          icon: StarBorderRound
+          title: '分步表单'
         }
       },
       {
@@ -109,8 +108,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         name: 'detail',
         component: routerComponent(() => import('@/views/form/advanced-form.vue')),
         meta: {
-          title: '表单详情',
-          icon: StarBorderRound
+          title: '表单详情'
         }
       }
     ]
@@ -151,6 +149,22 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
+
+  {
+    path: '/user',
+    component: Layout as unknown as Component,
+    children: [
+      {
+        path: '',
+        name: 'user',
+        component: routerComponent(() => import('@/views/user/index.vue')),
+        meta: {
+          title: '个人中心',
+          icon: StarOutline
+        }
+      }
+    ]
+  },
   multiMenu
 ];
 
@@ -158,7 +172,7 @@ const constantRouter: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/views/login/login.vue'),
+    component: () => import('@/views/login/index.vue'),
     meta: {
       title: '登录'
     }
