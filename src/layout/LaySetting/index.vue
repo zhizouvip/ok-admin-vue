@@ -1,8 +1,5 @@
 <template>
-  <n-icon class="setting-btn lay-hover" @click="show = true" size="20">
-    <settings-outline />
-  </n-icon>
-  <n-drawer v-model:show="show" :width="256">
+  <n-drawer>
     <n-drawer-content
       :body-style="{ overflow: 'hidden' }"
       :body-content-style="{ padding: 0 }"
@@ -21,13 +18,19 @@
 
 <script lang="ts">
 import { SettingsOutline } from '@vicons/ionicons5';
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 import { NDrawer, NDrawerContent, NScrollbar } from 'naive-ui';
 import SetNavigation from './components/SetNavigation.vue';
 import SetTheme from './components/SetTheme.vue';
 import SetOther from './components/SetOther.vue';
 export default defineComponent({
   name: 'LaySetting',
+  props: {
+    size: {
+      type: [Number, String],
+      default: 18
+    }
+  },
   components: {
     NDrawer,
     NDrawerContent,
@@ -36,11 +39,6 @@ export default defineComponent({
     SetOther,
     SetNavigation,
     SettingsOutline
-  },
-  setup() {
-    return {
-      show: ref(false)
-    };
   }
 });
 </script>

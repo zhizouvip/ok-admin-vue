@@ -18,7 +18,7 @@
       <n-layout-content
         v-if="layConfig.tagShow"
         position="absolute"
-        style="height: 48px; left: 0; top: 64px; right: 0;"
+        style="height: 48px; left: 0; top: 64px; right: 0"
       >
         <lay-tag></lay-tag>
       </n-layout-content>
@@ -84,11 +84,16 @@ export default defineComponent({
 <style lang="scss">
 @import './styles/layout.scss';
 
+/**主内容 */
 .layout-main {
   .n-scrollbar-container,
   .n-scrollbar-content {
     width: 100%;
     min-height: 100%;
+  }
+  // 垂直滚动条
+  .n-scrollbar > .n-scrollbar-rail.n-scrollbar-rail--vertical {
+    right: 0;
   }
 }
 </style>

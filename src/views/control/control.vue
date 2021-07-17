@@ -1,12 +1,16 @@
 <template>
   <div class="app-container">
-    <div class="box">{{ hello }} - {{ foo }}</div>
-    <div>
-      <n-button @click="headerKeep">foo</n-button>
-    </div>
-    <div>
-      <n-button @click="toggleTagShow">toggleTagShow</n-button>
-    </div>
+    <n-grid cols="1" x-gap="12" y-gap="12" responsive="screen">
+      <n-gi>
+        <div class="box">{{ hello }} - {{ foo }}</div>
+      </n-gi>
+      <n-gi>
+        <n-button @click="headerKeep">foo</n-button>
+      </n-gi>
+      <n-gi>
+        <n-input style="width: 200px"></n-input>
+      </n-gi>
+    </n-grid>
   </div>
 </template>
 <script setup lang="ts">

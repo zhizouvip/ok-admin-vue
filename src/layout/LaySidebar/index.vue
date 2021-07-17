@@ -23,10 +23,7 @@
       bordered
     >
       <div class="lay-sidebar">
-        <div
-          class="head"
-          :class="{ 'head-inverted': layConfig.sidebarInverted }"
-        >
+        <div class="head" :class="{ 'head-inverted': layConfig.sidebarInverted }">
           <img class="img" alt="logo" src="/src/assets/head.png" />
         </div>
         <n-menu
@@ -89,7 +86,7 @@ export default defineComponent({
       layConfig,
       menuOptions,
       active,
-      sliderWidth: 256,
+      sliderWidth: 240,
 
       getSrc: (path: string) => {
         const patha = '../../assets/head.png';

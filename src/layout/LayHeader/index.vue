@@ -4,18 +4,12 @@
       <!-- left -->
       <n-gi>
         <div class="header-left">
-          <n-icon class="lay-hover" title="菜单切换" size="20">
-            <menu-fold-outlined v-show="!layConfig.collapsed" @click="hanldeMenu" />
-            <menu-unfold-outlined
-              v-show="layConfig.collapsed"
-              @click="layConfig.collapsed = false"
-            />
-          </n-icon>
-          <div class="header-refresh">
-            <n-icon @click="handleRefresh" title="刷新" class="lay-hover" size="20">
-              <refresh-filled />
-            </n-icon>
-          </div>
+          <!-- 菜单切换 -->
+          <button-menu />
+
+          <!-- 刷新页面 -->
+          <button-refresh />
+
           <!-- 面包屑 -->
           <n-breadcrumb class="xs-hidden">
             <n-breadcrumb-item v-for="item in matcheds" :key="item">{{ item }}</n-breadcrumb-item>
@@ -26,23 +20,31 @@
       <!-- right -->
       <n-gi suffix>
         <div class="header-right">
-          <div class="flex-center padding-lr-10">
-            <n-icon title="锁屏" class="lay-hover" size="20">
-              <lock-closed-outline />
+          <!-- 锁屏 -->
+          <div class="flex-center btn-content lay-hover">
+            <n-icon class="lay-hover" size="20">
+              <lock-closed />
             </n-icon>
           </div>
-          <div class="flex-center padding-lr-10">
-            <n-dropdown trigger="hover" @select="handleSelect" :options="optionsISO">
-              <n-icon title="语言" class="lay-hover" size="20">
+
+          <!-- 语言切换 -->
+          <n-dropdown trigger="hover" @select="handleSelect" :options="optionsISO">
+            <div title="语言" class="flex-center btn-content lay-hover">
+              <n-icon class="lay-hover" size="18">
                 <globe-outline />
               </n-icon>
-            </n-dropdown>
-          </div>
-          <div class="flex-center padding-lr-10">
-            <full-screen />
-          </div>
-          <div class="flex-center padding-left-10">
-            <lay-setting></lay-setting>
+            </div>
+          </n-dropdown>
+
+          <!-- 全屏按钮 -->
+          <button-full-screen size="18" />
+
+          <!-- 设置 -->
+          <div @click="setShow = true" class="flex-center btn-content lay-hover">
+            <n-icon class="setting-btn lay-hover" size="18">
+              <settings-outline />
+            </n-icon>
+            <lay-setting v-model:show="setShow"></lay-setting>
           </div>
         </div>
       </n-gi>
@@ -51,17 +53,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, ref, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
-import { useStore } from 'vuex';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '../../icon/antd-icon';
-import { GlobeOutline, LockClosedOutline } from '@vicons/ionicons5';
-import { RefreshFilled } from '../../icon/material-icon';
-import { throttle } from '../utils/index';
-import LaySetting from '@/layout/LaySetting/index.vue';
-import FullScreen from './FullScreen.tsx';
-
+import { defineComponent, ref, watchEffect } from 'vue';
+import { LockClosed } from '@/icon/material-icon/index.ts';
+import { GlobeOutline, SettingsOutline } from '@vicons/ionicons5';
 import { NGi, NGrid, NBreadcrumb, NBreadcrumbItem, NIcon, NDropdown } from 'naive-ui';
+import { ButtonFullScreen, ButtonMenu, ButtonRefresh } from './components/index.ts';
+import LaySetting from '@/layout/LaySetting/index.vue';
+
 export default defineComponent({
   name: 'LayHeader',
   components: {
@@ -71,20 +70,18 @@ export default defineComponent({
     NBreadcrumb,
     NBreadcrumbItem,
     NDropdown,
-    FullScreen,
     LaySetting,
-    RefreshFilled,
     GlobeOutline,
-    LockClosedOutline,
-    MenuFoldOutlined,
-    MenuUnfoldOutlined
+    SettingsOutline,
+    LockClosed,
+    ButtonMenu,
+    ButtonRefresh,
+    ButtonFullScreen
   },
-  setup(props, superContext) {
-    const store = useStore(),
-      route = useRoute();
+  setup() {
+    const route = useRoute();
+    const setShow = ref(false);
     let matcheds = ref([] as Array<string>);
-    const mobileOptions = inject('mobileOptions') as any;
-    const layConfig: any = store.getters['admin/layConfigGetter'];
 
     watchEffect(() => {
       // 面包屑
@@ -96,8 +93,8 @@ export default defineComponent({
     });
 
     return {
+      setShow,
       matcheds,
-      layConfig,
       optionsISO: [
         {
           label: '简体中文',
@@ -110,19 +107,6 @@ export default defineComponent({
       ],
       handleSelect: (val: any) => {
         console.log(val);
-      },
-      // 刷新页面
-      handleRefresh() {
-        const componentInstances = (route.matched[route.matched.length - 1] as any).instances
-          .default;
-        componentInstances.handleReload();
-      },
-      hanldeMenu() {
-        if (mobileOptions.isMobile) {
-          mobileOptions.showMobileSlidebar = true;
-        } else {
-          layConfig.collapsed = true;
-        }
       }
     };
   }
@@ -143,7 +127,7 @@ export default defineComponent({
 
 .header-left {
   display: flex;
-  padding: 0 18px;
+  padding: 0 6px;
   align-items: center;
 }
 .header-right {
@@ -152,9 +136,13 @@ export default defineComponent({
   align-items: center;
   justify-content: flex-end;
 }
-.header-refresh {
+.btn-content {
+  height: 64px;
+  box-sizing: border-box;
+  transition: all 0.25s;
   padding: 0 12px;
-  display: inline-flex;
-  align-items: center;
+  &:hover {
+    background: #f8f8f9;
+  }
 }
 </style>

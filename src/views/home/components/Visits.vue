@@ -1,11 +1,11 @@
 <template>
-  <n-grid cols="12 xs:1" x-gap="12" y-gap="12" responsive="screen">
-    <n-gi span="8 s:6 m:6" class="padding-tb-5">
+  <n-grid cols="8 xs:1" x-gap="12" y-gap="12" responsive="screen">
+    <n-gi span="5 s:6 m:6" class="padding-tb-5">
       <n-card title="数据统计" :bordered="false">
         <div id="visits"></div>
       </n-card>
     </n-gi>
-    <n-gi span="4 s:6 m:6" class="padding-tb-5">
+    <n-gi span="3 s:6 m:6" class="padding-tb-5">
       <n-card title="数据统计" :bordered="false">
         <div id="pie"></div>
       </n-card>

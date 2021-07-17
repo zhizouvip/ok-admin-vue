@@ -7,7 +7,7 @@
       backgroundColor: layConfig.sidebarInverted ? '#001428' : ''
     }"
     :native-scrollbar="false"
-    :width="sliderWidth"
+    :width="width"
     :placement="'left'"
   >
     <slot />
@@ -22,7 +22,7 @@ import { globalWitchEffect } from '../utils/index';
 export default defineComponent({
   name: 'LayDrawer',
   props: {
-    sliderWidth: {
+    width: {
       type: Number,
       default: 256
     }

@@ -12,7 +12,6 @@ import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
 import { darkTheme, NConfigProvider, NLoadingBarProvider } from 'naive-ui';
 
-const name = 'App';
 const store = useStore();
 const route = useRoute();
 const loadingBar: any = ref(null);
