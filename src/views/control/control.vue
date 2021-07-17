@@ -5,7 +5,7 @@
         <div class="box">{{ hello }} - {{ foo }}</div>
       </n-gi>
       <n-gi>
-        <n-button @click="headerKeep">foo</n-button>
+        <n-button type="primary" @click="headerKeep">foo</n-button>
       </n-gi>
       <n-gi>
         <n-input style="width: 200px"></n-input>

@@ -21,7 +21,7 @@
       <n-gi suffix>
         <div class="header-right">
           <!-- 锁屏 -->
-          <div class="flex-center btn-content lay-hover">
+          <div title="锁屏" class="flex-center btn-content lay-hover">
             <n-icon class="lay-hover" size="20">
               <lock-closed />
             </n-icon>
@@ -29,7 +29,7 @@
 
           <!-- 语言切换 -->
           <n-dropdown trigger="hover" @select="handleSelect" :options="optionsISO">
-            <div title="语言" class="flex-center btn-content lay-hover">
+            <div title="语言切换" class="flex-center btn-content lay-hover">
               <n-icon class="lay-hover" size="18">
                 <globe-outline />
               </n-icon>
@@ -39,8 +39,8 @@
           <!-- 全屏按钮 -->
           <button-full-screen size="18" />
 
-          <!-- 设置 -->
-          <div @click="setShow = true" class="flex-center btn-content lay-hover">
+          <!-- 系统设置 -->
+          <div @click="setShow = true" title="系统设置" class="flex-center btn-content lay-hover">
             <n-icon class="setting-btn lay-hover" size="18">
               <settings-outline />
             </n-icon>

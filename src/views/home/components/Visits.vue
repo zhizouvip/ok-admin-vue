@@ -1,11 +1,11 @@
 <template>
   <n-grid cols="8 xs:1" x-gap="12" y-gap="12" responsive="screen">
-    <n-gi span="5 s:6 m:6" class="padding-tb-5">
+    <n-gi span="5 xs:6 s:4" class="padding-tb-5">
       <n-card title="数据统计" :bordered="false">
         <div id="visits"></div>
       </n-card>
     </n-gi>
-    <n-gi span="3 s:6 m:6" class="padding-tb-5">
+    <n-gi span="3 xs:6 s:4" class="padding-tb-5">
       <n-card title="数据统计" :bordered="false">
         <div id="pie"></div>
       </n-card>
@@ -16,7 +16,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { Chart } from '@antv/g2';
-import { NCard, NGrid, NGi } from 'naive-ui';
 const randomNum = (min = 500, max = 12000): number => {
   const num = Math.random() * (max - min) + min;
   return parseInt(num + '');
