@@ -6,11 +6,7 @@
         <div class="text">ok-admin-vue通用后台模版解决方案</div>
       </div>
       <div class="view-account-cont">
-        <n-input
-          v-model:value="formData.username"
-          type="input"
-          placeholder="基本的 Input"
-        />
+        <n-input v-model:value="formData.username" type="input" placeholder="基本的 Input" />
       </div>
       <div class="view-account-cont">
         <n-input
@@ -23,20 +19,16 @@
       </div>
 
       <div class="view-account-cont">
-        <n-button class="other" size="large" type="primary">登录</n-button>
+        <n-button @click="handleSubmit" class="other" size="large" type="primary">登录</n-button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs, ref } from 'vue';
-import {
-  PersonOutline,
-  LockClosedOutline,
-  LogoGithub,
-  LogoFacebook
-} from '@vicons/ionicons5';
+import { defineComponent, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { PersonOutline, LockClosedOutline, LogoGithub, LogoFacebook } from '@vicons/ionicons5';
 
 export default defineComponent({
   name: 'Login',
@@ -47,6 +39,7 @@ export default defineComponent({
     LogoFacebook
   },
   setup() {
+    const router = useRouter();
     const formData = reactive({
       username: 'admin',
       password: '123456'
@@ -54,6 +47,9 @@ export default defineComponent({
     return {
       formData,
       logo: import('@/assets/logo.png'),
+      handleSubmit() {
+        router.replace('/dashboard/control');
+      },
       rules: {
         username: {
           required: true,

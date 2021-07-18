@@ -2,10 +2,9 @@ import { Component } from 'vue';
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import Layout from '@/layout/index.vue';
 import {
-  SpeedometerOutline,
   TimerOutline,
   HomeOutline,
-  CloudyOutline,
+  PartlySunnyOutline,
   CloudyNightOutline,
   StarOutline,
   ColorPaletteOutline,
@@ -28,8 +27,8 @@ export type IMeta = {
   href?: string; // 跳转到外部链接的地址(设置了此项点击将会跳转到其他网站)
 };
 
-// 是否是白天
-const isDayTime = new Date().getHours() < 18;
+// 是否是白天 5-17
+const isDayTime = 4 < new Date().getHours() && new Date().getHours() < 18;
 
 export const asyncRoutes: Array<RouteRecordRaw> = [
   {
@@ -64,7 +63,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         meta: {
           title: '工作台',
           keepAlive: true,
-          icon: isDayTime ? CloudyOutline : CloudyNightOutline
+          icon: isDayTime ? PartlySunnyOutline : CloudyNightOutline
         }
       }
     ]

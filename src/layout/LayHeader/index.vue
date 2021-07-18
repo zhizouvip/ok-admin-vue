@@ -27,6 +27,9 @@
             </n-icon>
           </div>
 
+          <!-- 全屏按钮 -->
+          <button-full-screen size="18" />
+
           <!-- 语言切换 -->
           <n-dropdown trigger="hover" @select="handleSelect" :options="optionsISO">
             <div title="语言切换" class="flex-center btn-content lay-hover">
@@ -36,8 +39,8 @@
             </div>
           </n-dropdown>
 
-          <!-- 全屏按钮 -->
-          <button-full-screen size="18" />
+          <!-- 用户菜单 -->
+          <user-menu />
 
           <!-- 系统设置 -->
           <div @click="setShow = true" title="系统设置" class="flex-center btn-content lay-hover">
@@ -58,7 +61,7 @@ import { defineComponent, ref, watchEffect } from 'vue';
 import { LockClosed } from '@/icon/material-icon/index.ts';
 import { GlobeOutline, SettingsOutline } from '@vicons/ionicons5';
 import { NGi, NGrid, NBreadcrumb, NBreadcrumbItem, NIcon, NDropdown } from 'naive-ui';
-import { ButtonFullScreen, ButtonMenu, ButtonRefresh } from './components/index.ts';
+import { ButtonFullScreen, ButtonMenu, ButtonRefresh, UserMenu } from './components/index.ts';
 import LaySetting from '@/layout/LaySetting/index.vue';
 
 export default defineComponent({
@@ -73,6 +76,7 @@ export default defineComponent({
     LaySetting,
     GlobeOutline,
     SettingsOutline,
+    UserMenu,
     LockClosed,
     ButtonMenu,
     ButtonRefresh,

@@ -1,5 +1,35 @@
 @import './transition.scss';
 
+.padding-5 {
+  padding: 5px;
+}
+
+.padding-left-5 {
+  padding-left: 5px;
+}
+
+.padding-right-5 {
+  padding-right: 5px;
+}
+
+.padding-top-5 {
+  padding-top: 5px;
+}
+
+.padding-bottom-5 {
+  padding-bottom: 5px;
+}
+
+.padding-lr-5 {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.padding-tb-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .padding-10 {
   padding: 10px;
 }

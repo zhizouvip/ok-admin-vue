@@ -1,0 +1,14 @@
+.flex-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-content {
+  height: 64px;
+  box-sizing: border-box;
+  transition: all 0.25s;
+  padding: 0 12px;
+  &:hover {
+    background: #f8f8f9;
+  }
+}
