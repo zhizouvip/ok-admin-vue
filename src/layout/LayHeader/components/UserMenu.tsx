@@ -1,3 +1,7 @@
+/**
+ * 头像
+ */
+
 import '../index.scss';
 import { useRouter } from 'vue-router';
 import { defineComponent, Component, h } from 'vue';

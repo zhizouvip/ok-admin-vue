@@ -1,7 +1,7 @@
 import { h, Component } from 'vue';
 import { NIcon } from 'naive-ui';
-import store from '../../store/store';
-import router from '../../router/router';
+import store from '@/store/store.ts';
+import router from '@/router/router.ts';
 
 import {
   ArrowBackOutline,
@@ -47,7 +47,7 @@ export const menuOptions = [
 ];
 
 /**关闭tag菜单的事件 */
-export const closeMenu = function(key: string, tags: Array<Tag>) {
+export const closeMenu = function (key: string, tags: Array<Tag>) {
   const route = router.currentRoute.value;
   const thatIndex = tags.findIndex((tag) => tag.fullPath === route.fullPath);
 
@@ -55,10 +55,7 @@ export const closeMenu = function(key: string, tags: Array<Tag>) {
     case 'closeLeft':
       let tempIndexL = 0;
       while (tags[tempIndexL].fullPath !== route.fullPath) {
-        if (
-          tags[tempIndexL].fullPath !== route.fullPath &&
-          !tags[tempIndexL].meta.affix
-        ) {
+        if (tags[tempIndexL].fullPath !== route.fullPath && !tags[tempIndexL].meta.affix) {
           const [temp] = tags.splice(tempIndexL, 1);
           store.commit('admin/DEL_KEEPALIVES', temp.name);
         } else {
@@ -68,14 +65,8 @@ export const closeMenu = function(key: string, tags: Array<Tag>) {
       break;
     case 'closeRight':
       let tempIndexR = thatIndex + 1;
-      while (
-        tempIndexR < tags.length &&
-        tags[tempIndexR].fullPath !== route.fullPath
-      ) {
-        if (
-          tags[tempIndexR].fullPath !== route.fullPath &&
-          !tags[tempIndexR].meta.affix
-        ) {
+      while (tempIndexR < tags.length && tags[tempIndexR].fullPath !== route.fullPath) {
+        if (tags[tempIndexR].fullPath !== route.fullPath && !tags[tempIndexR].meta.affix) {
           const [temp] = tags.splice(tempIndexR, 1);
           store.commit('admin/DEL_KEEPALIVES', temp.name);
         } else {

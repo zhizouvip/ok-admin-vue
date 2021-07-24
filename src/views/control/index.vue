@@ -11,22 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, reactive, getCurrentInstance } from 'vue';
+import { onMounted } from 'vue';
 import http from '@/utils/http.ts';
 import Cards from '@/views/control/components/Cards.vue';
 import CardLink from '@/views/control/components/CardLink.vue';
 import Visits from '@/views/control/components/Visits.vue';
 
-interface Data {
-  [key: string]: unknown;
-}
-
-const { proxy } = getCurrentInstance() as any,
-  readersNumber = ref(0),
-  book = reactive({
-    title: 'Vue 3 Guide',
-    food: 'bar'
-  });
 onMounted(() => {
   const url = 'http://rap2api.taobao.org/app/mock/233041/user/list';
   http

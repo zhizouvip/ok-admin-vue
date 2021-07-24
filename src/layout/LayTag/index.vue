@@ -7,27 +7,29 @@
       :scrollable="true"
       :x-scrollable="true"
     >
-      <div class="lay-tag" ref="layTag">
-        <div
-          v-for="(item, index) in tags"
-          class="tag-item"
-          :key="item.fullPath"
-          :class="item.fullPath === $route.fullPath ? 'tag-active' : 'default'"
-        >
-          <div class="tag-cont">
-            <n-button
-              class="tag-btn"
-              @click="handleTagOpen(item.fullPath)"
-              :type="item.fullPath === $route.fullPath ? 'primary' : 'default'"
-            >
-              <span>{{ item.meta.title }}</span>
-              <n-icon v-if="!isAffix(item)" @click.stop="handleTagClose(index)" class="tag-close">
-                <close-sharp></close-sharp>
-              </n-icon>
-            </n-button>
+      <mouse-menu :handleMenuSelect="handleMenuSelect">
+        <div class="lay-tag" ref="layTag">
+          <div
+            v-for="(item, index) in tags"
+            class="tag-item"
+            :key="item.fullPath"
+            :class="item.fullPath === $route.fullPath ? 'tag-active' : 'default'"
+          >
+            <div class="tag-cont">
+              <n-button
+                class="tag-btn"
+                @click="handleTagOpen(item.fullPath)"
+                :type="item.fullPath === $route.fullPath ? 'primary' : 'default'"
+              >
+                <span>{{ item.meta.title }}</span>
+                <n-icon v-if="!isAffix(item)" @click.stop="handleTagClose(index)" class="tag-close">
+                  <close-sharp></close-sharp>
+                </n-icon>
+              </n-button>
+            </div>
           </div>
         </div>
-      </div>
+      </mouse-menu>
     </n-scrollbar>
     <div class="lay-tag-menu">
       <n-dropdown
@@ -46,14 +48,15 @@
   </div>
 </template>
 <script lang="ts">
+import type { RouteLocationRaw } from 'vue-router';
 import { ChevronDownOutline, CloseSharp } from '@vicons/ionicons5';
 import { NButton, NDropdown, NIcon, NScrollbar } from 'naive-ui';
 import { defineComponent, nextTick, onMounted, reactive, ref, watchEffect } from 'vue';
-import type { RouteLocationRaw } from 'vue-router';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-import { Tag, tagsEffect, tagsScroll } from './index';
-import { closeMenu, menuOptions } from './tagMenu';
+import { Tag, tagsEffect, tagsScroll } from './utils/index';
+import { closeMenu, menuOptions } from './utils/tagMenu';
+import MouseMenu from './components/MouseMenu.vue';
 
 export default defineComponent({
   name: 'LayTag',
@@ -64,7 +67,8 @@ export default defineComponent({
     NScrollbar,
     NDropdown,
     ChevronDownOutline,
-    CloseSharp
+    CloseSharp,
+    MouseMenu
   },
   setup() {
     const router = useRouter(),
@@ -124,7 +128,7 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-@import '../styles/mixins.scss';
+@import "../styles/mixins.scss";
 $background: #ffffff;
 $tag-height: 48px;
 .lay-tag-box {
