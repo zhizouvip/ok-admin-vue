@@ -1,5 +1,5 @@
 <template>
-  <div class="lay-header">
+  <div class="lay-header lay-select-none">
     <n-grid x-gap="2" cols="2">
       <!-- left -->
       <n-gi>
@@ -11,7 +11,7 @@
           <button-refresh />
 
           <!-- 面包屑 -->
-          <n-breadcrumb class="xs-hidden">
+          <n-breadcrumb sm-hidden xs-hidden>
             <n-breadcrumb-item v-for="item in matcheds" :key="item">{{ item }}</n-breadcrumb-item>
           </n-breadcrumb>
         </div>
@@ -21,18 +21,18 @@
       <n-gi suffix>
         <div class="header-right">
           <!-- 锁屏 -->
-          <div title="锁屏" class="flex-center btn-content lay-hover">
+          <div title="锁屏" xs-hidden class="flex-center btn-content lay-hover">
             <n-icon class="lay-hover" size="20">
               <lock-closed />
             </n-icon>
           </div>
 
           <!-- 全屏按钮 -->
-          <button-full-screen size="18" />
+          <button-full-screen xs-hidden size="18" />
 
           <!-- 语言切换 -->
           <n-dropdown trigger="hover" @select="handleSelect" :options="optionsISO">
-            <div title="语言切换" class="flex-center btn-content lay-hover">
+            <div title="语言切换" xs-hidden class="flex-center btn-content lay-hover">
               <n-icon class="lay-hover" size="18">
                 <globe-outline />
               </n-icon>

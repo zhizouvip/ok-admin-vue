@@ -1,6 +1,6 @@
-import { RouteMeta, RouteRecordNormalized } from 'vue-router';
+import { RouteMeta } from 'vue-router';
 import { watch } from 'vue';
-import router, { asyncRoutes } from '../../router/router';
+import router, { asyncRoutes } from '@/router/router.ts';
 
 export type Tag = {
   name?: string;
@@ -35,7 +35,7 @@ export const tagsEffect = function (tags: Array<Tag>): void {
   const route = router.currentRoute;
 
   /**tags初始化 处理affix悬挂 */
-  asyncRoutes.forEach((item, index) => {
+  asyncRoutes.forEach((item: any) => {
     componentBool(item) &&
       item.children?.forEach((citem: any) => {
         if (citem.meta && citem.meta.affix) {

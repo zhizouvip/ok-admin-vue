@@ -6,13 +6,12 @@ import { Component, h } from 'vue';
 import { RouteRecordRaw } from 'vue-router';
 import { NIcon, MenuOption, MenuGroupOption } from 'naive-ui';
 import { asyncRoutes } from '../../router/router';
+import { isURL } from '../utils/index.ts';
 
 // 如果是网址那么返回地址，否则返回空字符串
-const regular =
-  /^\b(((https?|ftp):\/\/)?[-a-z0-9]+(\.[-a-z0-9]+)*\.(?:com|edu|gov|int|mil|net|org|biz|info|name|museum|asia|coop|aero|[a-z][a-z]|((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d))\b(\/[-a-z0-9_:\@&?=+,.!\/~%\$]*)?)$/i;
 function getURL(meta: any): string {
   if (!meta || !meta.href) return '';
-  if (regular.test(meta.href)) {
+  if (isURL(meta.href)) {
     return meta.href;
   } else {
     return '';

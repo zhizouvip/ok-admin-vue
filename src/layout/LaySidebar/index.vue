@@ -12,7 +12,7 @@
       :style="{
         zIndex: 999,
         minHeight: '100%',
-        boxShadow: '2px 0 6px var(--border-color)'
+        boxShadow: '0 0 8px var(--border-color)'
       }"
       :width="sliderWidth"
       :native-scrollbar="false"
@@ -47,18 +47,11 @@
 import { useStore } from 'vuex';
 import { useRouter, useRoute } from 'vue-router';
 import { ref, reactive, watchEffect, defineComponent, inject } from 'vue';
-import LayDrawer from './LayDrawer.vue';
 import { NLayoutSider, NImage, NMenu, NSpace, NSwitch } from 'naive-ui';
 import { useMenu } from './menuOptions';
-function isURL(urlStr: string) {
-  const regular =
-    /^\b(((https?|ftp):\/\/)?[-a-z0-9]+(\.[-a-z0-9]+)*\.(?:com|edu|gov|int|mil|net|org|biz|info|name|museum|asia|coop|aero|[a-z][a-z]|((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d))\b(\/[-a-z0-9_:\@&?=+,.!\/~%\$]*)?)$/i;
-  if (regular.test(urlStr)) {
-    return true;
-  } else {
-    return false;
-  }
-}
+import { isURL } from '../utils/index.ts';
+import LayDrawer from './LayDrawer.vue';
+
 export default defineComponent({
   name: 'LaySidebar',
   components: {
@@ -121,9 +114,9 @@ export default defineComponent({
 .lay-sidebar {
   ::v-deep(.n-menu) {
     .n-menu-item::before {
-      left: 0;
+      /* left: 0;
       right: 0;
-      border-radius: 0;
+      border-radius: 0; */
     }
   }
 
