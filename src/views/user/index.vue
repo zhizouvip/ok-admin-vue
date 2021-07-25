@@ -1,5 +1,7 @@
 <template>
   <div class="app-container">
+    <Test></Test>
+    <Hello></Hello>
     <div class="foo">{{ foo }}</div>
     <div>{{ bar }}</div>
     <n-button @click="headerKeep">切换</n-button>
@@ -9,8 +11,7 @@
     <div style="width: 350px">
       <router-link to="/asdfsa" custom>
         <div>阿斯顿发简历卡萨丁了</div>
-      </router-link>
-      文本颜色：
+      </router-link>文本颜色：
       <n-input v-model:value="color" />背景颜色：
       <n-input v-model:value="bgColor" />
     </div>

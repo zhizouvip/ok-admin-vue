@@ -18,7 +18,7 @@ const loadingBar: any = ref(null);
 const themeOverrides = ref(null) as any;
 
 /**设置主题 */
-const body: any = document.getElementsByTagName('body')[0];
+const body = document.getElementsByTagName<"body">('body')[0];
 watchEffect(() => {
   const theme = store.getters['theme/appThemeGetter'];
   themeOverrides.value = {
