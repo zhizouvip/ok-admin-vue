@@ -14,31 +14,17 @@
 </template>
 <script lang="ts">
 import { useStore } from 'vuex';
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'layMain',
   setup() {
     const store = useStore();
     const keepAlives = store.getters['admin/keepAlivesGetter'];
-    /* 
-      watch(
-        route,
-        () => {
-          if (route.meta && route.meta.keepAlive) {
-            store.commit(
-              'admin/ADD_KEEPALIVES',
-              route.matched[route.matched.length - 1].components.default.name
-            );
-          }
-        },
-        {
-          immediate: true
-        }
-      );
-    */
+
     return { keepAlives };
   }
 });
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>

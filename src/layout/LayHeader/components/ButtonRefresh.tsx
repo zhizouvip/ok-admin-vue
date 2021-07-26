@@ -1,11 +1,10 @@
 /**
- * 页面刷新组件
+ * 页面刷新的组件
  */
 
-import { inject, defineComponent } from 'vue';
-import { useStore } from 'vuex';
-import { useRoute } from 'vue-router';
+import { defineComponent } from 'vue';
 import { ReloadOutline } from '@vicons/ionicons5';
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: 'ButtonMenu',
@@ -16,13 +15,12 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const store = useStore();
     const route = useRoute();
-    const mobileOptions = inject('mobileOptions') as any;
-    const layConfig: any = store.getters['admin/layConfigGetter'];
+    let componentInstances: any = ''; // 当前路由页面组件实例
 
     function handleRefresh() {
-      const componentInstances = (route.matched[route.matched.length - 1] as any).instances.default;
+      componentInstances =
+        (route.matched[route.matched.length - 1] as any).instances.default || componentInstances;
       componentInstances.handleReload();
     }
     return () => (

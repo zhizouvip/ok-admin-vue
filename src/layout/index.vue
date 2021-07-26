@@ -82,7 +82,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import './styles/layout.scss';
+@import "./styles/layout.scss";
 
 /**主内容 */
 .layout-main {
