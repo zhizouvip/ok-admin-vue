@@ -1,20 +1,24 @@
 <template>
   <n-grid x-gap="12" y-gap="12" cols="8 xs:2 s:4 m:4" responsive="screen">
     <n-gi>
-      <div class="bg-white link-cont">
-        <n-icon size="24">
-          <logo-octocat />
-        </n-icon>
-        <div class="text">主题色</div>
-      </div>
+      <n-card :bordered="false" :content-style="{ padding: 0 }">
+        <div class="link-cont">
+          <n-icon size="24">
+            <logo-octocat />
+          </n-icon>
+          <div class="text">主题色</div>
+        </div>
+      </n-card>
     </n-gi>
     <n-gi v-for="item in appThemeList" :key="item.primaryColor">
-      <div class="bg-white link-cont" :style="{ color: item.primaryColor }">
-        <n-icon size="24">
-          <logo-octocat />
-        </n-icon>
-        <div class="text">{{ item.primaryColor }}</div>
-      </div>
+      <n-card :bordered="false" :content-style="{ padding: 0 }">
+        <div class="link-cont" :style="{ color: item.primaryColor }">
+          <n-icon size="24">
+            <logo-octocat />
+          </n-icon>
+          <div class="text">{{ item.primaryColor }}</div>
+        </div>
+      </n-card>
     </n-gi>
   </n-grid>
 </template>
@@ -36,7 +40,6 @@ import { appThemeList } from '@/setting/theme.ts';
   padding-top: 5px;
 }
 .link-cont {
-  background: white;
   text-align: center;
   cursor: pointer;
   border: 1px solid transparent;

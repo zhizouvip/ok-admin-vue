@@ -23,7 +23,7 @@
       bordered
     >
       <div class="lay-sidebar">
-        <div class="head" :class="{ 'head-inverted': layConfig.sidebarInverted }">
+        <div class="head" :class="{ 'head-inverted': isDarkTheme || layConfig.sidebarInverted }">
           <img class="img" alt="logo" src="/src/assets/head.png" />
         </div>
         <n-menu
@@ -46,7 +46,7 @@
 <script lang="ts">
 import { useStore } from 'vuex';
 import { useRouter, useRoute } from 'vue-router';
-import { ref, reactive, watchEffect, defineComponent, inject } from 'vue';
+import { ref, reactive, computed, watchEffect, defineComponent, inject } from 'vue';
 import { NLayoutSider, NImage, NMenu, NSpace, NSwitch } from 'naive-ui';
 import { useMenu } from './menuOptions';
 import { isURL } from '../utils/index.ts';
@@ -69,6 +69,7 @@ export default defineComponent({
       route = useRoute();
     const mobileOptions = inject('mobileOptions') as any;
     const layConfig = store.getters['admin/layConfigGetter'];
+    const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
     const active = ref(true);
     const menuConfig = reactive({
       menuKey: '',
@@ -83,6 +84,7 @@ export default defineComponent({
     });
 
     return {
+      isDarkTheme,
       menuConfig,
       layConfig,
       menuOptions,
@@ -132,7 +134,7 @@ export default defineComponent({
     transition: 0.25s border-bottom-color;
 
     &-inverted {
-      border-color: #000000;
+      border-color: rgba(255, 255, 255, 0.09);
     }
 
     .img {

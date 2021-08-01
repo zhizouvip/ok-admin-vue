@@ -1,5 +1,5 @@
 <template>
-  <div class="lay-tag-box lay-hairline--bottom">
+  <div class="lay-tag-box">
     <n-scrollbar
       style="flex: 1"
       ref="scrollbar"
@@ -18,11 +18,17 @@
             <div class="tag-cont">
               <n-button
                 class="tag-btn"
-                @click="handleTagOpen(item.fullPath)"
+                :style="isDarkTheme ? { color: '#fff' } : {}"
                 :type="item.fullPath === $route.fullPath ? 'primary' : 'default'"
+                @click="handleTagOpen(item.fullPath)"
               >
                 <span>{{ item.meta.title }}</span>
-                <n-icon v-if="!isAffix(item)" @click.stop="handleTagClose(index)" class="tag-close">
+                <n-icon
+                  v-if="!isAffix(item)"
+                  @click.stop="handleTagClose(index)"
+                  :class="isDarkTheme ? '' : 'tag-close-hover'"
+                  class="tag-close"
+                >
                   <close-sharp></close-sharp>
                 </n-icon>
               </n-button>
@@ -51,7 +57,7 @@
 import type { RouteLocationRaw } from 'vue-router';
 import { ChevronDownOutline, CloseSharp } from '@vicons/ionicons5';
 import { NButton, NDropdown, NIcon, NScrollbar } from 'naive-ui';
-import { defineComponent, nextTick, onMounted, reactive, ref, watchEffect } from 'vue';
+import { computed, defineComponent, nextTick, onMounted, reactive, ref, watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { Tag, tagsEffect, tagsScroll } from './utils/index';
@@ -79,6 +85,8 @@ export default defineComponent({
     const scrollbar = ref() as any;
     const layTag = ref() as any;
 
+    const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
+
     /**tags监听处理 */
     tagsEffect(tags);
 
@@ -99,6 +107,7 @@ export default defineComponent({
       layTag,
       scrollbar,
       menuOptions,
+      isDarkTheme,
 
       /** 菜单选择事件 */
       handleMenuSelect(key: string) {
@@ -129,13 +138,11 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 @import "../styles/mixins.scss";
-$background: #ffffff;
 $tag-height: 48px;
 .lay-tag-box {
   width: 100%;
   display: flex;
   height: $tag-height;
-  background-color: $background;
   box-sizing: border-box;
   position: relative;
 }
@@ -161,10 +168,6 @@ $tag-height: 48px;
   font-size: 14px;
   padding: 0 5px;
 
-  .tag-cont {
-    background: #ffffff;
-  }
-
   .tag-btn {
     position: relative;
     box-sizing: border-box;
@@ -183,7 +186,7 @@ $tag-height: 48px;
   }
 
   ::v-deep(.n-button--default-type) {
-    .tag-close {
+    .tag-close-hover {
       color: #000000;
     }
   }

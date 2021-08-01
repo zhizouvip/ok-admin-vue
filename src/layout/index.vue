@@ -15,13 +15,14 @@
       </n-layout-header>
 
       <!-- tag栏 -->
-      <n-layout-content
+      <n-layout-header
         v-if="layConfig.tagShow"
         position="absolute"
-        style="height: 48px; left: 0; top: 64px; right: 0"
+        bordered
+        style="height: 48px; left: 0; top: 64px; right: 0;"
       >
         <lay-tag></lay-tag>
-      </n-layout-content>
+      </n-layout-header>
 
       <!--   主内容区   -->
       <n-layout-content
@@ -33,7 +34,7 @@
           zIndex: 8,
           transition: 'top .25s',
           top: layConfig.tagShow ? '112px' : '64px',
-          background: '#f0f2f5'
+          background: isDarkTheme ? 'transparent' : '#f0f2f5'
         }"
       >
         <lay-main></lay-main>
@@ -44,7 +45,7 @@
 
 <script lang="ts">
 import { useStore } from 'vuex';
-import { defineComponent, provide, reactive, ref } from 'vue';
+import { defineComponent, provide, reactive, computed, ref } from 'vue';
 import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider } from 'naive-ui';
 import LayHeader from './LayHeader/index.vue';
 import LaySidebar from './LaySidebar/index.vue';
@@ -67,6 +68,8 @@ export default defineComponent({
     const store = useStore();
     const routerShow = ref(false);
     const layConfig = store.getters['admin/layConfigGetter'];
+    const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
+
     const mobileOptions = reactive({
       isMobile: false, // 是否处于移动端
       showMobileSlidebar: false // 显示和隐藏移动端的Slidebar
@@ -74,6 +77,7 @@ export default defineComponent({
     provide('mobileOptions', mobileOptions);
 
     return {
+      isDarkTheme,
       routerShow,
       layConfig
     };

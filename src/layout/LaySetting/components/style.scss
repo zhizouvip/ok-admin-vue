@@ -1,0 +1,55 @@
+.set-dark {
+  text-align: center;
+  &-switch {
+    background-color: #101014;
+    border-radius: calc(var(--rail-height) / 2);
+  }
+  &-icon {
+    color: #fadb14;
+  }
+  .n-switch.n-switch--active .n-switch__rail {
+    background-color: transparent;
+  }
+}
+
+/* 设置主题的组件的样式 */
+.set-theme {
+  .item {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+/* 导航栏风格组件的样式 */
+.set-Navigation {
+  .setting-btn {
+    padding: 5px;
+  }
+  .thenme {
+    padding-bottom: 10px;
+  }
+  .thenme-checkbox,
+  .checked {
+    display: flex;
+    justify-content: center;
+  }
+  .thenme-checkbox {
+    padding-bottom: 5px;
+  }
+  .checked-color {
+    color: var(--primary-color);
+  }
+}
+
+/* other组件的样式 */
+.set-other {
+  display: flex;
+  justify-content: space-between;
+  .tit {
+    font-size: 14px;
+  }
+}

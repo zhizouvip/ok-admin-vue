@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider :theme-overrides="themeOverrides">
+  <n-config-provider :theme="isDarkTheme ? darkTheme : null" :theme-overrides="themeOverrides">
     <n-loading-bar-provider ref="loadingBar">
       <router-view />
     </n-loading-bar-provider>
@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { watchEffect, watch, ref, nextTick, onMounted } from 'vue';
+import { watchEffect, watch, computed, ref, nextTick, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
 import { darkTheme, NConfigProvider, NLoadingBarProvider } from 'naive-ui';
@@ -16,6 +16,9 @@ const store = useStore();
 const route = useRoute();
 const loadingBar: any = ref(null);
 const themeOverrides = ref(null) as any;
+
+/**是否是暗夜主题 */
+const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
 
 /**设置主题 */
 const body = document.getElementsByTagName<"body">('body')[0];

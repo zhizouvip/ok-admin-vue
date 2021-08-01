@@ -13,9 +13,6 @@ import path from 'path';
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd();
   const env = loadEnv(mode, root);
-  console.log('env: ', env);
-  console.log('mode: ', mode);
-  console.log('command: ', command);
 
   return {
     plugins: [vue(), vueJsx()],
@@ -33,5 +30,16 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
       port: 3000,
       host: '0.0.0.0'
     }
+
+    // 全局css变量，混入
+
+    /* css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData:
+            '@import "./src/assets/css/variables.scss";' + '@import "./src/assets/css/mixins.scss";'
+        }
+      }
+    } */
   };
 });
