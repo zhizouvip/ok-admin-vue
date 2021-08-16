@@ -45,8 +45,9 @@
 
 <script lang="ts">
 import { useStore } from 'vuex';
-import { defineComponent, provide, reactive, computed, ref } from 'vue';
-import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider } from 'naive-ui';
+import { useRoute } from 'vue-router';
+import { defineComponent, provide, reactive, computed, ref, nextTick, watch } from 'vue';
+import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider, useLoadingBar } from 'naive-ui';
 import LayHeader from './LayHeader/index.vue';
 import LaySidebar from './LaySidebar/index.vue';
 import LayTag from './LayTag/index.vue';
@@ -66,16 +67,33 @@ export default defineComponent({
   },
   setup(props, superContext) {
     const store = useStore();
+    const route = useRoute();
     const routerShow = ref(false);
     const layConfig = store.getters['admin/layConfigGetter'];
     const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
 
+    /**provide*/
     const mobileOptions = reactive({
       isMobile: false, // 是否处于移动端
       showMobileSlidebar: false // 显示和隐藏移动端的Slidebar
     });
     provide('mobileOptions', mobileOptions);
 
+
+    /**加载loading*/
+    const loadingBar = useLoadingBar();
+    loadingBar.start();
+    watch(route, (to) => {
+      loadingBar.start();
+      nextTick(() => {
+        setTimeout(() => {
+          loadingBar.finish();
+        }, 200);
+      });
+    }, {
+      immediate: true
+    });
+    
     return {
       isDarkTheme,
       routerShow,

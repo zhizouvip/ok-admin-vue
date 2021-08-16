@@ -17,9 +17,6 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
   return {
     plugins: [vue(), vueJsx()],
     base: env['VITE_PUBLIC_PATH'] || '/',
-    build: {
-      outDir: env['VITE_OUT_DIR'] || 'dist'
-    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
@@ -29,8 +26,10 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
     server: {
       port: 3000,
       host: '0.0.0.0'
+    },
+    build: {
+      outDir: env['VITE_OUT_DIR'] || 'dist'
     }
-
     // 全局css变量，混入
 
     /* css: {

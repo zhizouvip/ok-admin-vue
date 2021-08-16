@@ -50,3 +50,37 @@ export default function (component: any) {
     });
   };
 }
+
+export const reloadComponent = (component: any) => {
+  const name = 'okAdminMain$' + Date.now();
+  return defineComponent({
+    name,
+    setup() {
+      const isReload = ref(false);
+      const loadingBar = useLoadingBar();
+      let timeOut: any = null;
+      const handleReload = () => {
+        isReload.value = true;
+        loadingBar?.start();
+        timeOut && clearTimeout(timeOut);
+        timeOut = setTimeout(() => {
+          nextTick(() => {
+            isReload.value = false;
+            loadingBar?.finish();
+          });
+        }, 260);
+      };
+      return {
+        isReload,
+        handleReload
+      };
+    },
+    render: function () {
+      if (this.isReload) {
+        return h(routerReload);
+      } else {
+        return component;
+      }
+    }
+  });
+};

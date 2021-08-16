@@ -34,8 +34,8 @@ export const throttle = function (callback: Function, wait = 300) {
 
 /***获取屏幕宽度 */
 export const globalWitchEffect = function (callback: Function) {
-  callback(globalThis.innerWidth);
-  globalThis.onresize = debounce((e: any) => {
+  callback(window.innerWidth);
+  window.onresize = debounce((e: any) => {
     callback(e.target.innerWidth);
   });
 };

@@ -72,15 +72,20 @@ export default defineComponent({
     const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
     const active = ref(true);
     const menuConfig = reactive({
-      menuKey: '',
-      menuKeys: ['']
+      menuKey: '/form/test-form/test1',
+      menuKeys: ['/form', '/form/test-form', '/form/test-form/test1']
     });
 
     watchEffect(() => {
       menuConfig.menuKey = route.fullPath;
-      menuConfig.menuKeys = route.matched.map((item) => {
-        return item.path;
-      });
+      const strArr = route.fullPath.split('/');
+
+      menuConfig.menuKeys = strArr.reduce((accumulator, currentValue) => {
+        if (currentValue) {
+          accumulator.push((accumulator[accumulator.length - 1] || '') + '/' + currentValue)
+        }
+        return accumulator
+      }, [] as Array<string>);
     });
 
     return {

@@ -27,7 +27,9 @@
       </div>
     </div>
   </div>
-  <div class="app-container"></div>
+  <div class="app-container">
+    dasfas
+  </div>
 </template>
 <script setup lang="ts">
 import { NAvatar } from 'naive-ui';

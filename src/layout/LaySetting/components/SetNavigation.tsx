@@ -12,10 +12,7 @@ export default defineComponent({
     const store = useStore();
     const layConfig = store.getters['admin/layConfigGetter'];
     return {
-      layConfig,
-      navThemeDark,
-      navThemeLight,
-      headerThemeDark
+      layConfig
     };
   },
   render: function () {
@@ -84,7 +81,7 @@ export default defineComponent({
                     onClick={() => (this.layConfig.headerInverted = false)}
                     class="thenme-checkbox pointer"
                   >
-                    <img src={this.navThemeDark} alt="navThemeDark" />
+                    <img src={navThemeDark} alt="navThemeDark" />
                   </div>
                 )
               }}
@@ -108,7 +105,7 @@ export default defineComponent({
                     onClick={() => (this.layConfig.headerInverted = true)}
                     class="thenme-checkbox pointer"
                   >
-                    <img src={this.navThemeDark} alt="navThemeDark" />
+                    <img src={headerThemeDark} alt="headerThemeDark" />
                   </div>
                 )
               }}

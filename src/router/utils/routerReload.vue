@@ -1,6 +1,11 @@
 <template>
   <div class="ok-loading">
-    <div class="ball-loader"> <span></span><span></span><span></span><span></span> </div>
+    <div class="ball-loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </template>
 
@@ -8,34 +13,24 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'routerReload',
-  setup() {}
+  setup() { }
 });
 </script>
 
 <style lang="scss">
 .ok-loading {
   position: absolute;
-  display: block;
   width: 100%;
-  height: 100%;
   top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
-  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .ok-loading.close {
   animation: close 1s;
   -webkit-animation: close 1s;
   animation-fill-mode: forwards;
-}
-.ball-loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
 }
 .ball-loader > span,
 .signal-loader > span {

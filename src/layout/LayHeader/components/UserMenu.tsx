@@ -4,7 +4,8 @@
 
 import '../index.scss';
 import { useRouter } from 'vue-router';
-import { defineComponent, Component, h } from 'vue';
+import { useStore } from 'vuex';
+import { defineComponent, Component, h, computed } from 'vue';
 import { NAvatar, NDropdown, NIcon } from 'naive-ui';
 import { PersonOutline, Power } from '@vicons/ionicons5';
 import avatar from '@/assets/avatar.png';
@@ -18,6 +19,8 @@ export default defineComponent({
   name: 'UserMenu',
   setup() {
     const router = useRouter();
+    const store = useStore();
+    const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
     const userMenus = [
       {
         label: '个人中心',
@@ -41,6 +44,7 @@ export default defineComponent({
       }
     };
     return {
+      isDarkTheme,
       userMenus,
       handleSelect
     };
@@ -48,7 +52,7 @@ export default defineComponent({
   render: function () {
     return (
       <NDropdown trigger="hover" onSelect={this.handleSelect} options={this.userMenus}>
-        <div class="flex-center btn-content lay-hover">
+        <div class={`flex-center btn-content lay-hover ${this.isDarkTheme ? 'dark-hover' : ''}`}>
           <NAvatar circle size="small" src={avatar}></NAvatar>
           <div class="padding-left-10">Admin</div>
         </div>

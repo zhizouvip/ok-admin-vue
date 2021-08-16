@@ -57,7 +57,8 @@
 
 <script lang="ts">
 import { useRoute } from 'vue-router';
-import { defineComponent, ref, watchEffect } from 'vue';
+import { useStore } from 'vuex';
+import { defineComponent, computed, ref, watchEffect } from 'vue';
 import { LockClosed } from '@/icon/material-icon/index.ts';
 import { GlobeOutline, SettingsOutline } from '@vicons/ionicons5';
 import { NGi, NGrid, NBreadcrumb, NBreadcrumbItem, NIcon, NDropdown } from 'naive-ui';
@@ -83,9 +84,14 @@ export default defineComponent({
     ButtonFullScreen
   },
   setup() {
+    const store = useStore();
     const route = useRoute();
     const setShow = ref(false);
+    const hoverColor = computed(() => {
+      return store.getters['theme/isDarkThemeGetter'] ? '#101014' : '#f8f8f9'
+    });
     let matcheds = ref([] as Array<string>);
+
 
     watchEffect(() => {
       // 面包屑
@@ -99,6 +105,7 @@ export default defineComponent({
     return {
       setShow,
       matcheds,
+      hoverColor,
       optionsISO: [
         {
           label: '简体中文',
@@ -146,7 +153,7 @@ export default defineComponent({
   transition: all 0.25s;
   padding: 0 12px;
   &:hover {
-    background: #f8f8f9;
+    background: v-bind(hoverColor);
   }
 }
 </style>

@@ -1,5 +1,5 @@
 import { Component } from 'vue';
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw, RouterView } from 'vue-router';
 import Layout from '@/layout/index.vue';
 import {
   TimerOutline,
@@ -15,6 +15,7 @@ import multiMenu from './modules/multiMenu.ts'; // 多级菜单
 import routerComponent from './utils/routerComponent.ts';
 import routerReload from './utils/routerReload.vue';
 import routerGuard from './utils/routerGuard.ts';
+import routerFormat from './utils/routerFormat.ts';
 
 // meta菜单设置的选项说明
 export type IMeta = {
@@ -30,6 +31,7 @@ export type IMeta = {
 // 是否是白天 5-17
 const isDayTime = 4 < new Date().getHours() && new Date().getHours() < 18;
 
+// Layout框架路由页面
 export const asyncRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -109,6 +111,34 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         meta: {
           title: '表单详情'
         }
+      },
+      {
+        path: 'test-form',
+        name: 'test-form',
+        component: RouterView,
+        meta: {
+          title: 'test表单'
+        },
+        children: [
+          {
+            path: 'test1',
+            name: 'test1',
+            component: routerComponent(() => import('@/views/form/test-form.vue')),
+            meta: {
+              title: 'test表单1',
+              keepAlive: true
+            }
+          },
+          {
+            path: 'test2',
+            name: 'test2',
+            component: routerComponent(() => import('@/views/form/test-form.vue')),
+            meta: {
+              title: 'test表单2',
+              keepAlive: true
+            }
+          }
+        ]
       }
     ]
   },
@@ -167,7 +197,8 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
   multiMenu
 ];
 
-const constantRouter: Array<RouteRecordRaw> = [
+// 常规路由页面
+const constantRouters: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
@@ -178,9 +209,12 @@ const constantRouter: Array<RouteRecordRaw> = [
   }
 ];
 
+// 重新组装layout路由
+const layoutRouters: RouteRecordRaw = routerFormat(asyncRoutes);
+
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: constantRouter.concat(asyncRoutes),
+  routes: constantRouters.concat(layoutRouters), // .concat(asyncRoutes)
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 })
 });
