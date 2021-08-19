@@ -15,8 +15,8 @@
   <slot v-if="!mobileOptions.isMobile" />
 </template>
 <script lang="ts">
-import { defineComponent, inject, ref } from 'vue';
-import { useStore } from 'vuex';
+import { defineComponent, inject } from 'vue';
+import useAdminStore from '@/store/adminStore.ts';
 import { NDrawer } from 'naive-ui';
 import { globalWitchEffect } from '../utils/index';
 export default defineComponent({
@@ -31,8 +31,8 @@ export default defineComponent({
     NDrawer
   },
   setup() {
-    const store = useStore();
-    const layConfig = store.getters['admin/layConfigGetter'];
+    const adminStore = useAdminStore();
+    const layConfig = adminStore.layConfigGetter;
     const mobileOptions = inject('mobileOptions') as any;
 
     /**页面宽度监听*/

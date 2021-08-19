@@ -59,7 +59,8 @@ import { ChevronDownOutline, CloseSharp } from '@vicons/ionicons5';
 import { NButton, NDropdown, NIcon, NScrollbar } from 'naive-ui';
 import { computed, defineComponent, nextTick, onMounted, reactive, ref, watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useStore } from 'vuex';
+import useThemeStore from '@/store/themeStore.ts';
+import useAdminStore from '@/store/adminStore.ts';
 import { Tag, tagsEffect, tagsScroll } from './utils/index';
 import { closeMenu, menuOptions } from './utils/tagMenu';
 import MouseMenu from './components/MouseMenu.vue';
@@ -79,13 +80,14 @@ export default defineComponent({
   setup() {
     const router = useRouter(),
       route = useRoute(),
-      store = useStore();
+      adminStore = useAdminStore(),
+      themeStore = useThemeStore();
 
     let tags: Array<Tag> = reactive([]);
     const scrollbar = ref() as any;
     const layTag = ref() as any;
 
-    const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
+    const isDarkTheme = computed(() => themeStore.isDarkThemeGetter);
 
     /**tags监听处理 */
     tagsEffect(tags);
@@ -127,7 +129,7 @@ export default defineComponent({
           }
         }
         const [temp] = tags.splice(index, 1);
-        store.commit('admin/DEL_KEEPALIVES', temp.name);
+        adminStore.DEL_KEEPALIVES(temp.name);
       },
       isAffix(tag: Tag) {
         return tag.meta && tag.meta.affix;

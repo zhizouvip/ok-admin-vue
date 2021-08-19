@@ -1,20 +1,20 @@
 import './style.scss';
 import { defineComponent, ref } from 'vue';
-import { useStore } from 'vuex';
+import useThemeStore from '@/store/themeStore.ts';
 import { NSwitch, NIcon } from 'naive-ui';
 import { Sunny, Moon } from '@vicons/ionicons5';
 
 export default defineComponent({
   name: 'SetDark',
   setup() {
-    const store = useStore();
-    const isDarkTheme = ref(store.getters['theme/isDarkThemeGetter']);
+    const themeStore = useThemeStore();
+    const isDarkTheme = ref(themeStore.isDarkThemeGetter);
 
     return {
       isDarkTheme,
       handleDarkTheme(val: boolean) {
         isDarkTheme.value = val;
-        store.commit('theme/SET_ISDARKTHEME', val);
+        themeStore.SET_ISDARKTHEME(val);
       }
     };
   },

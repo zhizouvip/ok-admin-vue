@@ -3,7 +3,7 @@
  */
 
 import { inject, defineComponent } from 'vue';
-import { useStore } from 'vuex';
+import useAdminStore from '@/store/adminStore.ts';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@/icon/antd-icon/index.ts';
 
 export default defineComponent({
@@ -15,9 +15,9 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const store = useStore();
+    const adminStore = useAdminStore();
     const mobileOptions = inject('mobileOptions') as any;
-    const layConfig: any = store.getters['admin/layConfigGetter'];
+    const layConfig: any = adminStore.layConfigGetter;
 
     function hanldeMenu() {
       if (mobileOptions.isMobile) {

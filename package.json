@@ -19,11 +19,11 @@
     "@vicons/ionicons5": "^0.10.0",
     "axios": "^0.21.1",
     "naive-ui": "^2.16.2",
+    "pinia": "^2.0.0-rc.4",
     "vfonts": "^0.1.0",
     "vue": "^3.2.2",
     "vue-i18n": "^9.1.6",
-    "vue-router": "^4.0.10",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.0.10"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.29.0",

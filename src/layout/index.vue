@@ -44,7 +44,8 @@
 </template>
 
 <script lang="ts">
-import { useStore } from 'vuex';
+import useThemeStore from '@/store/themeStore.ts';
+import useAdminStore from '@/store/adminStore.ts';
 import { useRoute } from 'vue-router';
 import { defineComponent, provide, reactive, computed, ref, nextTick, watch } from 'vue';
 import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider, useLoadingBar } from 'naive-ui';
@@ -66,11 +67,13 @@ export default defineComponent({
     NLayoutSider
   },
   setup(props, superContext) {
-    const store = useStore();
+    const themeStore = useThemeStore();
+    const adminStore = useAdminStore();
+
     const route = useRoute();
     const routerShow = ref(false);
-    const layConfig = store.getters['admin/layConfigGetter'];
-    const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
+    const layConfig = adminStore.layConfigGetter;
+    const isDarkTheme = computed(() => themeStore.isDarkThemeGetter);
 
     /**provide*/
     const mobileOptions = reactive({
@@ -78,7 +81,6 @@ export default defineComponent({
       showMobileSlidebar: false // 显示和隐藏移动端的Slidebar
     });
     provide('mobileOptions', mobileOptions);
-
 
     /**加载loading*/
     const loadingBar = useLoadingBar();
@@ -93,7 +95,7 @@ export default defineComponent({
     }, {
       immediate: true
     });
-    
+
     return {
       isDarkTheme,
       routerShow,

@@ -1,22 +1,22 @@
 import './style.scss';
-import { defineComponent, unref } from 'vue';
-import { useStore } from 'vuex';
+import { defineComponent } from 'vue';
+import useThemeStore from '@/store/themeStore.ts';
 import { NDivider, NGrid, NGi, NIcon } from 'naive-ui';
 import { CheckmarkSharp } from '@vicons/ionicons5';
 export default defineComponent({
   name: 'SetTheme',
   setup() {
-    const store = useStore();
+    const themeStore = useThemeStore();
     return {
-      store,
+      themeStore,
       handleTheme(themeColor: any) {
-        store.commit('theme/SET_APPTHEME', themeColor);
+        themeStore.SET_APPTHEME(themeColor);
       }
     };
   },
   render: function () {
-    const appTheme = this.store.state.theme.appTheme;
-    const appThemeList = this.store.state.theme.appThemeList;
+    const appTheme = this.themeStore.appTheme;
+    const appThemeList = this.themeStore.appThemeList;
 
     return (
       <div class="set-theme padding-bottom-10">

@@ -4,7 +4,7 @@
 
 import '../index.scss';
 import { useRouter } from 'vue-router';
-import { useStore } from 'vuex';
+import useThemeStore from '@/store/themeStore.ts';
 import { defineComponent, Component, h, computed } from 'vue';
 import { NAvatar, NDropdown, NIcon } from 'naive-ui';
 import { PersonOutline, Power } from '@vicons/ionicons5';
@@ -19,8 +19,8 @@ export default defineComponent({
   name: 'UserMenu',
   setup() {
     const router = useRouter();
-    const store = useStore();
-    const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
+    const themeStore = useThemeStore();
+    const isDarkTheme = computed(() => themeStore.isDarkThemeGetter);
     const userMenus = [
       {
         label: '个人中心',

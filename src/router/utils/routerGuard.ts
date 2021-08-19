@@ -3,15 +3,13 @@
  */
 
 import type { Router } from 'vue-router';
-import store from '@/store/store.ts';
+import useAdminStore from '../../store/adminStore.ts';
 
 // 添加keepAlive缓存
 function addKeepAlive(route: any) {
+  const adminStore = useAdminStore();
   if (route.meta && route.meta.keepAlive) {
-    store.commit(
-      'admin/ADD_KEEPALIVES',
-      route.matched[route.matched.length - 1].components.default.name
-    );
+    adminStore.ADD_KEEPALIVES(route.matched[route.matched.length - 1].components.default.name);
   }
 }
 

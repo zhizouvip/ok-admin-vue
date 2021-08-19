@@ -6,7 +6,7 @@
     <div>{{ bar }}</div>
     <n-button @click="headerKeep">切换</n-button>
     <div class="padding">
-      <n-button @click="toggleTagShow">测试{{ store.state.admin.layConfig }}</n-button>
+      <n-button @click="toggleTagShow">测试{{ adminStore.layConfig }}</n-button>
     </div>
     <div style="width: 350px">
       <router-link to="/asdfsa" custom>
@@ -20,23 +20,23 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useStore } from 'vuex';
+import useAdminStore from '@/store/adminStore.ts';
 
 const hello = ref(5);
 
 const foo = ref('user');
 const bar = ref('bar');
-const store = useStore();
+const adminStore = useAdminStore();
 const headerKeep = () => {
   foo.value = 'dsafasd' + Math.random() * 100;
 };
-const layConfig = store.getters['admin/layConfigGetter'];
+const layConfig = adminStore.layConfigGetter;
 const toggleTagShow = () => {
   layConfig['tagShow'] = !layConfig['tagShow'];
 };
 const headerVuex = () => {
-  const conf = store.getters['admin/layConfigGetter'];
-  store.commit('admin/SET_LAYCONFIG', {
+  const conf = adminStore.layConfigGetter;
+  adminStore.SET_LAYCONFIG({
     key: 'collapsed',
     value: !conf.collapsed
   });

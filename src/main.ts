@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import { createPinia, Pinia } from 'pinia';
 import router from './router/router';
-import store from './store/store';
 import NaiveUi from './naiveui/index';
 import globalComponents from './plugins/globalComponents.ts';
 
@@ -14,8 +14,9 @@ app.use(NaiveUi);
 // 注册全局自定义组件
 app.use(globalComponents);
 
-// 注册vuex状态管理
-app.use(store);
+// 注册pinia状态管理
+const pinia = createPinia();
+app.use(pinia);
 
 // 注册路由
 app.use(router);

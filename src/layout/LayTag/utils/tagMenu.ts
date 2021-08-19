@@ -1,6 +1,6 @@
 import { h, Component } from 'vue';
 import { NIcon } from 'naive-ui';
-import store from '@/store/store.ts';
+import useAdminStore from '@/store/adminStore.ts';
 import router from '@/router/router.ts';
 
 import {
@@ -49,6 +49,7 @@ export const menuOptions = [
 /**关闭tag菜单的事件 */
 export const closeMenu = function (key: string, tags: Array<Tag>) {
   const route = router.currentRoute.value;
+  const adminStore = useAdminStore();
   const thatIndex = tags.findIndex((tag) => tag.fullPath === route.fullPath);
 
   switch (key) {
@@ -57,7 +58,7 @@ export const closeMenu = function (key: string, tags: Array<Tag>) {
       while (tags[tempIndexL].fullPath !== route.fullPath) {
         if (tags[tempIndexL].fullPath !== route.fullPath && !tags[tempIndexL].meta.affix) {
           const [temp] = tags.splice(tempIndexL, 1);
-          store.commit('admin/DEL_KEEPALIVES', temp.name);
+          adminStore.DEL_KEEPALIVES(temp.name);
         } else {
           tempIndexL++;
         }
@@ -68,7 +69,7 @@ export const closeMenu = function (key: string, tags: Array<Tag>) {
       while (tempIndexR < tags.length && tags[tempIndexR].fullPath !== route.fullPath) {
         if (tags[tempIndexR].fullPath !== route.fullPath && !tags[tempIndexR].meta.affix) {
           const [temp] = tags.splice(tempIndexR, 1);
-          store.commit('admin/DEL_KEEPALIVES', temp.name);
+          adminStore.DEL_KEEPALIVES(temp.name);
         } else {
           tempIndexR++;
         }
@@ -78,7 +79,7 @@ export const closeMenu = function (key: string, tags: Array<Tag>) {
       for (let i = 0; i < tags.length; i++) {
         if (tags[i].fullPath !== route.fullPath && !tags[i].meta.affix) {
           const [temp] = tags.splice(i, 1);
-          store.commit('admin/DEL_KEEPALIVES', temp.name);
+          adminStore.DEL_KEEPALIVES(temp.name);
           i--;
         }
       }
@@ -87,7 +88,7 @@ export const closeMenu = function (key: string, tags: Array<Tag>) {
       for (let i = 0; i < tags.length; i++) {
         if (!tags[i].meta.affix) {
           const [temp] = tags.splice(i, 1);
-          store.commit('admin/DEL_KEEPALIVES', temp.name);
+          adminStore.DEL_KEEPALIVES(temp.name);
           i--;
         }
       }
@@ -104,7 +105,7 @@ export const closeMenu = function (key: string, tags: Array<Tag>) {
           router.push(tags[thatIndex - 1].fullPath);
         }
         const [temp] = tags.splice(thatIndex, 1);
-        store.commit('admin/DEL_KEEPALIVES', temp.name);
+        adminStore.DEL_KEEPALIVES(temp.name);
       }
       break;
   }

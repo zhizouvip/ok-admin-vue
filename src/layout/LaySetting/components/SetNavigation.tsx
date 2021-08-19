@@ -1,16 +1,16 @@
 import './style.scss';
 import { defineComponent } from 'vue';
-import { useStore } from 'vuex';
+import useAdminStore from '@/store/adminStore.ts';
 import navThemeDark from '../svg/nav-theme-dark.svg';
 import navThemeLight from '../svg/nav-theme-light.svg';
 import headerThemeDark from '../svg/header-theme-dark.svg';
 import { Ellipse } from '@vicons/ionicons5';
-import { NTooltip, NGrid, NGi, NIcon, NDivider, dividerDark } from 'naive-ui';
+import { NTooltip, NGrid, NGi, NIcon, NDivider } from 'naive-ui';
 export default defineComponent({
   name: 'SetNavigation',
   setup() {
-    const store = useStore();
-    const layConfig = store.getters['admin/layConfigGetter'];
+    const adminStore = useAdminStore();
+    const layConfig = adminStore.layConfigGetter;
     return {
       layConfig
     };

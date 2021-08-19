@@ -1,12 +1,12 @@
 import './style.scss';
 import { defineComponent } from 'vue';
-import { useStore } from 'vuex';
+import useAdminStore from '@/store/adminStore.ts';
 import { NDivider, NSwitch } from 'naive-ui';
 export default defineComponent({
   name: 'SetOther',
   setup() {
-    const store = useStore();
-    const layConfig = store.getters['admin/layConfigGetter'];
+    const adminStore = useAdminStore();
+    const layConfig = adminStore.layConfigGetter;
     return {
       layConfig
     };

@@ -44,7 +44,8 @@
 </template>
 
 <script lang="ts">
-import { useStore } from 'vuex';
+import useThemeStore from '@/store/themeStore.ts';
+import useAdminStore from '@/store/adminStore.ts';
 import { useRouter, useRoute } from 'vue-router';
 import { ref, reactive, computed, watchEffect, defineComponent, inject } from 'vue';
 import { NLayoutSider, NImage, NMenu, NSpace, NSwitch } from 'naive-ui';
@@ -64,12 +65,13 @@ export default defineComponent({
   },
   setup(props, superContext) {
     const menuOptions = useMenu(),
-      store = useStore(),
+      themeStore = useThemeStore(),
+      adminStore = useAdminStore(),
       router = useRouter(),
       route = useRoute();
     const mobileOptions = inject('mobileOptions') as any;
-    const layConfig = store.getters['admin/layConfigGetter'];
-    const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
+    const layConfig = adminStore.layConfigGetter;
+    const isDarkTheme = computed(() => themeStore.isDarkThemeGetter);
     const active = ref(true);
     const menuConfig = reactive({
       menuKey: '/form/test-form/test1',

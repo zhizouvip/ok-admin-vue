@@ -13,14 +13,13 @@
   </router-view>
 </template>
 <script lang="ts">
-import { useStore } from 'vuex';
 import { defineComponent } from 'vue';
-
+import useAdminStore from '@/store/adminStore.ts';
 export default defineComponent({
   name: 'layMain',
   setup() {
-    const store = useStore();
-    const keepAlives = store.getters['admin/keepAlivesGetter'];
+    const adminStore = useAdminStore();
+    const keepAlives = adminStore.keepAlivesGetter;
 
     return { keepAlives };
   }

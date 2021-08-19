@@ -6,8 +6,7 @@
   </NConfigProvider>
 </template>
 <script lang="ts">
-import { useStore } from 'vuex';
-import { useRoute } from 'vue-router';
+import themeStore from './store/themeStore.ts';
 import { defineComponent, watchEffect, computed, ref } from 'vue';
 import { darkTheme, NConfigProvider, NLoadingBarProvider } from 'naive-ui';
 export default defineComponent({
@@ -17,15 +16,15 @@ export default defineComponent({
     NLoadingBarProvider,
   },
   setup: () => {
-    const store = useStore();
+    const store = themeStore();
     const themeOverrides: any = ref(null);
     /**是否是暗夜主题 */
-    const isDarkTheme = computed(() => store.getters['theme/isDarkThemeGetter']);
+    const isDarkTheme = computed(() => store.isDarkThemeGetter);
 
     /**设置主题 */
     const body = document.getElementsByTagName<"body">('body')[0];
     watchEffect(() => {
-      const theme = store.getters['theme/appThemeGetter'];
+      const theme = store.appThemeGetter;
       themeOverrides.value = {
         common: theme
       };
@@ -33,6 +32,7 @@ export default defineComponent({
       body.style.setProperty('--primary-color-hover', theme.primaryColorHover);
       body.style.setProperty('--primary-color-pressed', theme.primaryColorPressed);
     });
+
     return {
       darkTheme,
       isDarkTheme,
