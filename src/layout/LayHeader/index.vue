@@ -57,7 +57,7 @@
 
 <script lang="ts">
 import { useRoute } from 'vue-router';
-import useAdminStore from '@/store/adminStore.ts';
+import useThemeStore from '@/store/themeStore.ts';
 import { defineComponent, computed, ref, watchEffect } from 'vue';
 import { LockClosed } from '@/icon/material-icon/index.ts';
 import { GlobeOutline, SettingsOutline } from '@vicons/ionicons5';
@@ -84,11 +84,11 @@ export default defineComponent({
     ButtonFullScreen
   },
   setup() {
-    const adminStore = useAdminStore();
+    const themeStore = useThemeStore();
     const route = useRoute();
     const setShow = ref(false);
     const hoverColor = computed(() => {
-      return adminStore.isDarkThemeGetter ? '#101014' : '#f8f8f9'
+      return themeStore.isDarkThemeGetter ? '#101014' : '#f8f8f9'
     });
     let matcheds = ref([] as Array<string>);
 

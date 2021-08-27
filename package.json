@@ -15,22 +15,22 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@antv/g2": "^4.1.20",
+    "@antv/g2": "^4.1.25",
     "@vicons/ionicons5": "^0.10.0",
     "axios": "^0.21.1",
-    "naive-ui": "^2.16.2",
-    "pinia": "^2.0.0-rc.4",
+    "naive-ui": "^2.16.7",
+    "pinia": "^2.0.0-rc.6",
     "vfonts": "^0.1.0",
-    "vue": "^3.2.2",
+    "vue": "^3.2.6",
     "vue-i18n": "^9.1.6",
     "vue-router": "^4.0.10"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.29.0",
-    "@typescript-eslint/parser": "^4.29.0",
-    "@vitejs/plugin-vue": "^1.4.0",
+    "@vue/compiler-sfc": "^3.2.6",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "@vitejs/plugin-vue": "^1.6.0",
     "@vitejs/plugin-vue-jsx": "^1.1.7",
-    "@vue/compiler-sfc": "^3.2.2",
     "autoprefixer": "^10.3.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
@@ -40,10 +40,10 @@
     "prettier": "^2.3.2",
     "sass": "^1.37.5",
     "sass-loader": "^12.1.0",
-    "typescript": "^4.3.5",
-    "vite": "^2.4.4",
+    "typescript": "^4.4.2",
+    "vite": "^2.5.1",
     "vue-eslint-parser": "^7.10.0",
-    "vue-tsc": "^0.2.2"
+    "vue-tsc": "^0.3.0"
   },
   "keywords": [
     "vue",

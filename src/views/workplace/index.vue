@@ -4,7 +4,7 @@
     <div class="work-tip">
       <div class="work-info">
         <div class="work-avatar">
-          <n-avatar :src="avatar" circle :size="64"></n-avatar>
+          <n-avatar :src="userInfo.avatar" circle :size="64"></n-avatar>
         </div>
         <div class="work-help">
           <p class="work-help-title">{{ regardsStr }}</p>
@@ -28,14 +28,24 @@
     </div>
   </div>
   <div class="app-container">
-    dasfas
+    <NButton @click="btnClick" type="primary">点击：{{ userStore.testValue }}</NButton>
   </div>
 </template>
 <script setup lang="ts">
+import { computed } from 'vue';
 import { NAvatar } from 'naive-ui';
-import avatar from '@/assets/avatar.png';
+import useUserStore from '@/store/userStore.ts';
 import { regards } from '@/utils/dynamic.ts';
-const regardsStr = regards('Admin');
+
+const userStore = useUserStore();
+const { userInfo } = userStore;
+const regardsStr = computed(() => {
+  return regards(userStore.userInfo.userName);
+});
+
+const btnClick = () => {
+  userStore.SET_USERNAME(parseInt(Math.random() * 100 + ""));
+}
 
 </script>
 <style lang="scss" scoped>

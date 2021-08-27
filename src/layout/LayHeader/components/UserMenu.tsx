@@ -5,10 +5,10 @@
 import '../index.scss';
 import { useRouter } from 'vue-router';
 import useThemeStore from '@/store/themeStore.ts';
+import useUserStore from '@/store/userStore.ts';
 import { defineComponent, Component, h, computed } from 'vue';
 import { NAvatar, NDropdown, NIcon } from 'naive-ui';
 import { PersonOutline, Power } from '@vicons/ionicons5';
-import avatar from '@/assets/avatar.png';
 
 const icon = (icon: Component) => () =>
   h(NIcon, null, {
@@ -20,6 +20,7 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     const themeStore = useThemeStore();
+    const userStore = useUserStore();
     const isDarkTheme = computed(() => themeStore.isDarkThemeGetter);
     const userMenus = [
       {
@@ -46,15 +47,18 @@ export default defineComponent({
     return {
       isDarkTheme,
       userMenus,
+      userStore,
       handleSelect
     };
   },
   render: function () {
+    const { userInfo } = this.userStore;
+
     return (
       <NDropdown trigger="hover" onSelect={this.handleSelect} options={this.userMenus}>
         <div class={`flex-center btn-content lay-hover ${this.isDarkTheme ? 'dark-hover' : ''}`}>
-          <NAvatar circle size="small" src={avatar}></NAvatar>
-          <div class="padding-left-10">Admin</div>
+          <NAvatar circle size="small" src={userInfo.avatar}></NAvatar>
+          <div class="padding-left-10">{userInfo.userName}</div>
         </div>
       </NDropdown>
     );

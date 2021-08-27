@@ -158,6 +158,6 @@ export default {
   // 是否是暗夜主题
   isDarkTheme: false,
   // 默认主题色
-  appTheme: defaultColor,
+  appTheme: antdColor, //defaultColor,
   appThemeList
 };

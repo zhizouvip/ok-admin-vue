@@ -2,13 +2,14 @@ import { Component } from 'vue';
 import { createRouter, createWebHashHistory, RouteRecordRaw, RouterView } from 'vue-router';
 import Layout from '@/layout/index.vue';
 import {
-  TimerOutline,
+  SpeedometerOutline,
   HomeOutline,
   PartlySunnyOutline,
   CloudyNightOutline,
   StarOutline,
   ColorPaletteOutline,
-  WarningOutline
+  WarningOutline,
+  ListCircleOutline
 } from '@vicons/ionicons5';
 import multiMenu from './modules/multiMenu.ts'; // 多级菜单
 
@@ -44,7 +45,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     redirect: '/dashboard/control',
     meta: {
       title: 'Dashboard', // 页面标题
-      icon: TimerOutline // 图标
+      icon: SpeedometerOutline // 图标
     },
     children: [
       {
@@ -139,6 +140,34 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
             }
           }
         ]
+      }
+    ]
+  },
+  {
+    path: '/list',
+    name: 'list',
+    component: Layout as unknown as Component,
+    redirect: '/list/table-list',
+    meta: {
+      title: '表格',
+      icon: ListCircleOutline
+    },
+    children: [
+      {
+        path: 'table-list',
+        name: 'table-list',
+        component: routerComponent(() => import('@/views/list/table-list.vue')),
+        meta: {
+          title: '查询表格'
+        }
+      },
+      {
+        path: 'card-list',
+        name: 'card-list',
+        component: routerComponent(() => import('@/views/list/card-list.vue')),
+        meta: {
+          title: '卡片列表'
+        }
       }
     ]
   },
