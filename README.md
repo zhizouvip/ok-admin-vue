@@ -1,7 +1,7 @@
 <p align="center">
     <img src="https://images.gitee.com/uploads/images/2020/0105/013757_3dfb160a_1152471.png"/>
     <p align="center">
-        一个很赞的，扁平化风格的，响应式布局的通用后台模版解决方案，旨为后端程序员减压！
+        一个很赞的，扁平化风格的，响应式布局的通用后台模版解决方案，旨为后端程序员减压!！
     </p>
     <p align="center">
         <img src="https://img.shields.io/badge/vue-%3E%3D3.1.0-brightgreen">
