@@ -1,7 +1,7 @@
 <p align="center">
     <img src="https://images.gitee.com/uploads/images/2020/0105/013757_3dfb160a_1152471.png"/>
     <p align="center">
-        一个很赞的，扁平化风格的，响应式布局的通用后台模版解决方案，旨为后端程序员减压!！
+        一个很赞的，扁平化风格的，响应式布局的通用后台模版解决方案，旨为后端程序员减压！
     </p>
     <p align="center">
         <img src="https://img.shields.io/badge/vue-%3E%3D3.1.0-brightgreen">
@@ -22,31 +22,31 @@
 ### Project setup
 
 ```
-yarn install
+pnpm install
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn serve
+pnpm serve
 ```
 
 ### Compiles and minifies for production
 
 ```
-yarn build
+pnpm build
 ```
 
 ### Run your unit tests
 
 ```
-yarn test:unit
+pnpm test:unit
 ```
 
 ### Lints and fixes files
 
 ```
-yarn lint
+pnpm lint
 ```
 
 ### QQ 群交流
@@ -71,4 +71,4 @@ yarn lint
 | 依赖包 | 版本   |
 | ------ | ------ |
 | npm    | 6.9.0  |
-| yarn   | 1.22.4 |
+| pnpm   | 6.14.0 |
