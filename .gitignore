@@ -2,6 +2,7 @@ node_modules
 .DS_Store
 dist
 dist-ssr
+stats.html
 
 # local env files
 *.local
