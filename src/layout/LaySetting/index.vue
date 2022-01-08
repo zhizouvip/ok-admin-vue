@@ -18,9 +18,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { NDrawer, NDrawerContent, NScrollbar } from 'naive-ui';
-import { SetDark, SetTheme, SetNavigation, SetOther } from './components/index.ts';
+import { defineComponent } from 'vue'
+import { NDrawer, NDrawerContent, NScrollbar } from 'naive-ui'
+import { SetDark, SetTheme, SetNavigation, SetOther } from './components/index'
 
 export default defineComponent({
   name: 'LaySetting',
@@ -39,7 +39,7 @@ export default defineComponent({
     SetOther,
     SetNavigation
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>

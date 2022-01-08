@@ -1,19 +1,19 @@
-import './style.scss';
-import { defineComponent } from 'vue';
-import useAdminStore from '@/store/adminStore.ts';
-import navThemeDark from '../svg/nav-theme-dark.svg';
-import navThemeLight from '../svg/nav-theme-light.svg';
-import headerThemeDark from '../svg/header-theme-dark.svg';
-import { Ellipse } from '@vicons/ionicons5';
-import { NTooltip, NGrid, NGi, NIcon, NDivider } from 'naive-ui';
+import './style.scss'
+import { defineComponent } from 'vue'
+import useAdminStore from '@/store/adminStore.ts'
+import navThemeDark from '../svg/nav-theme-dark.svg'
+import navThemeLight from '../svg/nav-theme-light.svg'
+import headerThemeDark from '../svg/header-theme-dark.svg'
+import { Ellipse } from '@vicons/ionicons5'
+import { NTooltip, NGrid, NGi, NIcon, NDivider } from 'naive-ui'
 export default defineComponent({
   name: 'SetNavigation',
   setup() {
-    const adminStore = useAdminStore();
-    const layConfig = adminStore.layConfigGetter;
+    const adminStore = useAdminStore()
+    const layConfig = adminStore.layConfigGetter
     return {
       layConfig
-    };
+    }
   },
   render: function () {
     return (
@@ -120,6 +120,6 @@ export default defineComponent({
           </NGi>
         </NGrid>
       </div>
-    );
+    )
   }
-});
+})

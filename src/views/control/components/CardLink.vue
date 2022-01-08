@@ -1,5 +1,5 @@
 <template>
-  <n-grid x-gap="12" y-gap="12" cols="8 xs:2 s:4 m:4" responsive="screen">
+  <n-grid x-gap="12" y-gap="12" cols="l:8 xs:2 s:4 m:4" responsive="screen">
     <n-gi>
       <n-card :bordered="false" :content-style="{ padding: 0 }">
         <div class="link-cont">
@@ -12,7 +12,7 @@
     </n-gi>
     <n-gi v-for="item in appThemeList" :key="item.primaryColor">
       <n-card :bordered="false" :content-style="{ padding: 0 }">
-        <div class="link-cont" :style="{ color: item.primaryColor }">
+        <div class="link-cont" @click="onSwitchTheme(item)" :style="{ color: item.primaryColor }">
           <n-icon size="24">
             <logo-octocat />
           </n-icon>
@@ -24,9 +24,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { LogoOctocat } from '@vicons/ionicons5';
-import { appThemeList } from '@/setting/theme.ts';
+import { LogoOctocat } from '@vicons/ionicons5'
+import { appThemeList } from '@/setting/theme.ts'
+/** @description 切换主题色 */
+const onSwitchTheme = function (item: any) {
+  console.log(item);
+}
 </script>
 
 <style lang="scss" scoped>

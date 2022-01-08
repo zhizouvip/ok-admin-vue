@@ -2,9 +2,9 @@
  * 页面全屏组件
  */
 
-import { ref, defineComponent } from 'vue';
-import { NIcon } from 'naive-ui';
-import { ExpandOutline, ContractOutline } from '@vicons/ionicons5';
+import { ref, defineComponent } from 'vue'
+import { NIcon } from 'naive-ui'
+import { ExpandOutline, ContractOutline } from '@vicons/ionicons5'
 export default defineComponent({
   name: 'ButtonFullScreen',
   props: {
@@ -15,31 +15,31 @@ export default defineComponent({
   },
   components: { NIcon, ExpandOutline, ContractOutline },
   setup(props) {
-    let isFullScreen = ref(false);
+    let isFullScreen = ref(false)
 
     const handleScreen = () => {
-      let el: any = '';
-      let objFullScreen: any = '';
+      let el: any = ''
+      let objFullScreen: any = ''
       if (!isFullScreen.value) {
-        el = document.documentElement;
+        el = document.documentElement
         objFullScreen =
           el.requestFullScreen ||
           el.webkitRequestFullScreen ||
           el.mozRequestFullScreen ||
-          el.msRequestFullScreen;
+          el.msRequestFullScreen
       } else {
-        el = document;
+        el = document
         objFullScreen =
           el.cancelFullScreen ||
           el.webkitCancelFullScreen ||
           el.mozCancelFullScreen ||
-          el.exitFullScreen;
+          el.exitFullScreen
       }
       if (objFullScreen) {
-        isFullScreen.value = !isFullScreen.value;
-        objFullScreen.call(el);
+        isFullScreen.value = !isFullScreen.value
+        objFullScreen.call(el)
       }
-    };
+    }
     return () => (
       <div title="全屏切换" onClick={handleScreen} class="flex-center btn-content lay-hover">
         <n-icon class="lay-hover" size={props.size}>
@@ -47,6 +47,6 @@ export default defineComponent({
           <expand-outline v-show={!isFullScreen.value} />
         </n-icon>
       </div>
-    );
+    )
   }
-});
+})

@@ -1,14 +1,14 @@
-import { defineComponent, ref, Ref } from 'vue';
+import { defineComponent, ref, Ref } from 'vue'
 export default defineComponent({
   // name: 'Test',
   setup() {
-    const current: Ref<string | number> = ref('你好');
+    const current: Ref<string | number> = ref('你好')
     return {
       current,
       handleTest() {
-        current.value = Math.random() * 1000;
+        current.value = Math.random() * 1000
       }
-    };
+    }
   },
   render() {
     return (
@@ -18,6 +18,6 @@ export default defineComponent({
           <n-button onClick={this.handleTest}>点击</n-button>
         </div>
       </div>
-    );
+    )
   }
-});
+})

@@ -13,17 +13,16 @@
   </router-view>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
-import useAdminStore from '@/store/adminStore.ts';
-export default defineComponent({
-  name: 'layMain',
-  setup() {
-    const adminStore = useAdminStore();
-    const keepAlives = adminStore.keepAlivesGetter;
+  import { defineComponent } from 'vue'
+  import useAdminStore from '@/store/adminStore.ts'
+  export default defineComponent({
+    name: 'layMain',
+    setup() {
+      const adminStore = useAdminStore()
+      const keepAlives = adminStore.keepAlivesGetter
 
-    return { keepAlives };
-  }
-});
+      return { keepAlives }
+    }
+  })
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

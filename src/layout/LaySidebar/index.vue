@@ -44,14 +44,14 @@
 </template>
 
 <script lang="ts">
-import useThemeStore from '@/store/themeStore.ts';
-import useAdminStore from '@/store/adminStore.ts';
-import { useRouter, useRoute } from 'vue-router';
-import { ref, reactive, computed, watchEffect, defineComponent, inject } from 'vue';
-import { NLayoutSider, NImage, NMenu, NSpace, NSwitch } from 'naive-ui';
-import { useMenu } from './menuOptions';
-import { isURL } from '../utils/index.ts';
-import LayDrawer from './LayDrawer.vue';
+import useThemeStore from '@/store/themeStore.ts'
+import useAdminStore from '@/store/adminStore.ts'
+import { useRouter, useRoute } from 'vue-router'
+import { ref, reactive, computed, watchEffect, defineComponent, inject } from 'vue'
+import { NLayoutSider, NImage, NMenu, NSpace, NSwitch } from 'naive-ui'
+import { useMenu } from './menuOptions'
+import { isURL } from '../utils/index.ts'
+import LayDrawer from './LayDrawer.vue'
 
 export default defineComponent({
   name: 'LaySidebar',
@@ -68,27 +68,27 @@ export default defineComponent({
       themeStore = useThemeStore(),
       adminStore = useAdminStore(),
       router = useRouter(),
-      route = useRoute();
-    const mobileOptions = inject('mobileOptions') as any;
-    const layConfig = adminStore.layConfigGetter;
-    const isDarkTheme = computed(() => themeStore.isDarkThemeGetter);
-    const active = ref(true);
+      route = useRoute()
+    const mobileOptions = inject('mobileOptions') as any
+    const layConfig = adminStore.layConfigGetter
+    const isDarkTheme = computed(() => themeStore.isDarkThemeGetter)
+    const active = ref(true)
     const menuConfig = reactive({
       menuKey: '/form/test-form/test1',
       menuKeys: ['/form', '/form/test-form', '/form/test-form/test1']
-    });
+    })
 
     watchEffect(() => {
-      menuConfig.menuKey = route.fullPath;
-      const strArr = route.fullPath.split('/');
+      menuConfig.menuKey = route.fullPath
+      const strArr = route.fullPath.split('/')
 
       menuConfig.menuKeys = strArr.reduce((accumulator, currentValue) => {
         if (currentValue) {
           accumulator.push((accumulator[accumulator.length - 1] || '') + '/' + currentValue)
         }
         return accumulator
-      }, [] as Array<string>);
-    });
+      }, [] as Array<string>)
+    })
 
     return {
       isDarkTheme,
@@ -99,36 +99,28 @@ export default defineComponent({
       sliderWidth: 240,
 
       getSrc: (path: string) => {
-        const patha = '../../assets/head.png';
-        const modules = import.meta.globEager('../../assets/head.png');
-        return modules[patha].default;
+        const patha = '../../assets/head.png'
+        const modules = import.meta.globEager('../../assets/head.png')
+        return modules[patha].default
       },
       handleUpdateValue: (route: any) => {
-        mobileOptions.showMobileSlidebar = false;
+        mobileOptions.showMobileSlidebar = false
         if (isURL(route)) {
-          const link = document.createElement('a');
-          link.href = route;
-          link.target = '_blank';
-          link.click();
+          const link = document.createElement('a')
+          link.href = route
+          link.target = '_blank'
+          link.click()
         } else {
-          router.push(route);
+          router.push(route)
         }
       }
-    };
+    }
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>
 .lay-sidebar {
-  ::v-deep(.n-menu) {
-    .n-menu-item::before {
-      /* left: 0;
-      right: 0;
-      border-radius: 0; */
-    }
-  }
-
   .head {
     overflow: hidden;
     height: 64px;

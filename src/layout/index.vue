@@ -19,7 +19,7 @@
         v-if="layConfig.tagShow"
         position="absolute"
         bordered
-        style="height: 48px; left: 0; top: 64px; right: 0;"
+        style="height: 48px; left: 0; top: 64px; right: 0"
       >
         <lay-tag></lay-tag>
       </n-layout-header>
@@ -44,80 +44,84 @@
 </template>
 
 <script lang="ts">
-import useThemeStore from '@/store/themeStore.ts';
-import useAdminStore from '@/store/adminStore.ts';
-import { useRoute } from 'vue-router';
-import { defineComponent, provide, reactive, computed, ref, nextTick, watch } from 'vue';
-import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider, useLoadingBar } from 'naive-ui';
-import LayHeader from './LayHeader/index.vue';
-import LaySidebar from './LaySidebar/index.vue';
-import LayTag from './LayTag/index.vue';
-import LayMain from './LayMain/index.vue';
+  import useThemeStore from '@/store/themeStore.ts'
+  import useAdminStore from '@/store/adminStore.ts'
+  import { useRoute } from 'vue-router'
+  import { defineComponent, provide, reactive, computed, ref, nextTick, watch } from 'vue'
+  import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider, useLoadingBar } from 'naive-ui'
+  import LayHeader from './LayHeader/index.vue'
+  import LaySidebar from './LaySidebar/index.vue'
+  import LayTag from './LayTag/index.vue'
+  import LayMain from './LayMain/index.vue'
 
-export default defineComponent({
-  name: 'Layout',
-  components: {
-    LayMain,
-    LayTag,
-    LaySidebar,
-    LayHeader,
-    NLayout,
-    NLayoutHeader,
-    NLayoutContent,
-    NLayoutSider
-  },
-  setup(props, superContext) {
-    const themeStore = useThemeStore();
-    const adminStore = useAdminStore();
+  export default defineComponent({
+    name: 'Layout',
+    components: {
+      LayMain,
+      LayTag,
+      LaySidebar,
+      LayHeader,
+      NLayout,
+      NLayoutHeader,
+      NLayoutContent,
+      NLayoutSider
+    },
+    setup(props, superContext) {
+      const themeStore = useThemeStore()
+      const adminStore = useAdminStore()
 
-    const route = useRoute();
-    const routerShow = ref(false);
-    const layConfig = adminStore.layConfigGetter;
-    const isDarkTheme = computed(() => themeStore.isDarkThemeGetter);
+      const route = useRoute()
+      const routerShow = ref(false)
+      const layConfig = adminStore.layConfigGetter
+      const isDarkTheme = computed(() => themeStore.isDarkThemeGetter)
 
-    /**provide*/
-    const mobileOptions = reactive({
-      isMobile: false, // 是否处于移动端
-      showMobileSlidebar: false // 显示和隐藏移动端的Slidebar
-    });
-    provide('mobileOptions', mobileOptions);
+      /**provide*/
+      const mobileOptions = reactive({
+        isMobile: false, // 是否处于移动端
+        showMobileSlidebar: false // 显示和隐藏移动端的Slidebar
+      })
+      provide('mobileOptions', mobileOptions)
 
-    /**加载loading*/
-    const loadingBar = useLoadingBar();
-    loadingBar.start();
-    watch(route, (to) => {
-      loadingBar.start();
-      nextTick(() => {
-        setTimeout(() => {
-          loadingBar.finish();
-        }, 200);
-      });
-    }, {
-      immediate: true
-    });
+      /**加载loading*/
+      const loadingBar = useLoadingBar()
+      loadingBar.start()
+      watch(
+        route,
+        (to) => {
+          loadingBar.start()
+          nextTick(() => {
+            setTimeout(() => {
+              loadingBar.finish()
+            }, 200)
+          })
+        },
+        {
+          immediate: true
+        }
+      )
 
-    return {
-      isDarkTheme,
-      routerShow,
-      layConfig
-    };
-  }
-});
+      return {
+        isDarkTheme,
+        routerShow,
+        layConfig
+      }
+    }
+  })
 </script>
 
 <style lang="scss">
-@import "./styles/layout.scss";
+  @import './styles/layout.scss';
 
-/**主内容 */
-.layout-main {
-  .n-scrollbar-container,
-  .n-scrollbar-content {
-    width: 100%;
-    min-height: 100%;
+  /**主内容 */
+  .layout-main {
+    .n-scrollbar-container,
+    .n-scrollbar-content {
+      width: 100%;
+      min-height: 100%;
+    }
+    // 垂直滚动条
+    .n-scrollbar > .n-scrollbar-rail.n-scrollbar-rail--vertical {
+      right: 0;
+    }
   }
-  // 垂直滚动条
-  .n-scrollbar > .n-scrollbar-rail.n-scrollbar-rail--vertical {
-    right: 0;
-  }
-}
 </style>

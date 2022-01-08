@@ -2,26 +2,26 @@
  * 头像
  */
 
-import '../index.scss';
-import { useRouter } from 'vue-router';
-import useThemeStore from '@/store/themeStore.ts';
-import useUserStore from '@/store/userStore.ts';
-import { defineComponent, Component, h, computed } from 'vue';
-import { NAvatar, NDropdown, NIcon } from 'naive-ui';
-import { PersonOutline, Power } from '@vicons/ionicons5';
+import '../index.scss'
+import { useRouter } from 'vue-router'
+import useThemeStore from '@/store/themeStore.ts'
+import useUserStore from '@/store/userStore.ts'
+import { defineComponent, Component, h, computed } from 'vue'
+import { NAvatar, NDropdown, NIcon } from 'naive-ui'
+import { PersonOutline, Power } from '@vicons/ionicons5'
 
 const icon = (icon: Component) => () =>
   h(NIcon, null, {
     default: () => h(icon)
-  });
+  })
 
 export default defineComponent({
   name: 'UserMenu',
   setup() {
-    const router = useRouter();
-    const themeStore = useThemeStore();
-    const userStore = useUserStore();
-    const isDarkTheme = computed(() => themeStore.isDarkThemeGetter);
+    const router = useRouter()
+    const themeStore = useThemeStore()
+    const userStore = useUserStore()
+    const isDarkTheme = computed(() => themeStore.isDarkThemeGetter)
     const userMenus = [
       {
         label: '个人中心',
@@ -37,22 +37,22 @@ export default defineComponent({
         key: 'exit',
         icon: icon(Power)
       }
-    ];
+    ]
     const handleSelect = (key: string) => {
-      console.log(key);
+      console.log(key)
       if (key === 'exit') {
-        router.replace('/login');
+        router.replace('/login')
       }
-    };
+    }
     return {
       isDarkTheme,
       userMenus,
       userStore,
       handleSelect
-    };
+    }
   },
   render: function () {
-    const { userInfo } = this.userStore;
+    const { userInfo } = this.userStore
 
     return (
       <NDropdown trigger="hover" onSelect={this.handleSelect} options={this.userMenus}>
@@ -61,6 +61,6 @@ export default defineComponent({
           <div class="padding-left-10">{userInfo.userName}</div>
         </div>
       </NDropdown>
-    );
+    )
   }
-});
+})

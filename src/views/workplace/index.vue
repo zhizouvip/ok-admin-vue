@@ -32,63 +32,62 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue';
-import { NAvatar } from 'naive-ui';
-import useUserStore from '@/store/userStore.ts';
-import { regards } from '@/utils/dynamic.ts';
+  import { computed } from 'vue'
+  import { NAvatar } from 'naive-ui'
+  import useUserStore from '@/store/userStore.ts'
+  import { regards } from '@/utils/dynamic.ts'
 
-const userStore = useUserStore();
-const { userInfo } = userStore;
-const regardsStr = computed(() => {
-  return regards(userStore.userInfo.userName);
-});
+  const userStore = useUserStore()
+  const { userInfo } = userStore
+  const regardsStr = computed(() => {
+    return regards(userStore.userInfo.userName)
+  })
 
-const btnClick = () => {
-  userStore.SET_USERNAME(parseInt(Math.random() * 100 + ""));
-}
-
+  const btnClick = () => {
+    userStore.SET_USERNAME(parseInt(Math.random() * 100 + ''))
+  }
 </script>
 <style lang="scss" scoped>
-.work {
-  color: #333333;
-  background: #ffffff;
-  padding: 12px 32px;
-  &-tit {
-    font-size: 20px;
-    padding-bottom: 16px;
-  }
-  &-tip {
-    display: flex;
-    justify-content: space-between;
-  }
-  &-info {
-    display: flex;
-    align-items: center;
-  }
-  &-help {
-    padding-left: 12px;
-    &-title {
-      margin: 0 0 10px 0;
+  .work {
+    color: #333333;
+    background: #ffffff;
+    padding: 12px 32px;
+    &-tit {
       font-size: 20px;
-      font-weight: bold;
+      padding-bottom: 16px;
     }
-    &-dist {
-      margin: 0;
-      color: #999999;
+    &-tip {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-info {
+      display: flex;
+      align-items: center;
+    }
+    &-help {
+      padding-left: 12px;
+      &-title {
+        margin: 0 0 10px 0;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &-dist {
+        margin: 0;
+        color: #999999;
+      }
+    }
+    &-extra {
+      font-size: 16px;
+      color: #808695;
+      display: flex;
+      &-pronum {
+        padding: 0 16px;
+      }
+      &-count {
+        text-align: right;
+        color: #333;
+        font-size: 20px;
+      }
     }
   }
-  &-extra {
-    font-size: 16px;
-    color: #808695;
-    display: flex;
-    &-pronum {
-      padding: 0 16px;
-    }
-    &-count {
-      text-align: right;
-      color: #333;
-      font-size: 20px;
-    }
-  }
-}
 </style>

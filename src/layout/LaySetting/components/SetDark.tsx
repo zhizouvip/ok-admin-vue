@@ -1,22 +1,22 @@
-import './style.scss';
-import { defineComponent, ref } from 'vue';
-import useThemeStore from '@/store/themeStore.ts';
-import { NSwitch, NIcon } from 'naive-ui';
-import { Sunny, Moon } from '@vicons/ionicons5';
+import './style.scss'
+import { defineComponent, ref } from 'vue'
+import useThemeStore from '@/store/themeStore.ts'
+import { NSwitch, NIcon } from 'naive-ui'
+import { Sunny, Moon } from '@vicons/ionicons5'
 
 export default defineComponent({
   name: 'SetDark',
   setup() {
-    const themeStore = useThemeStore();
-    const isDarkTheme = ref(themeStore.isDarkThemeGetter);
+    const themeStore = useThemeStore()
+    const isDarkTheme = ref(themeStore.isDarkThemeGetter)
 
     return {
       isDarkTheme,
       handleDarkTheme(val: boolean) {
-        isDarkTheme.value = val;
-        themeStore.SET_ISDARKTHEME(val);
+        isDarkTheme.value = val
+        themeStore.SET_ISDARKTHEME(val)
       }
-    };
+    }
   },
   render: function () {
     return (
@@ -39,6 +39,6 @@ export default defineComponent({
           }}
         ></NSwitch>
       </div>
-    );
+    )
   }
-});
+})

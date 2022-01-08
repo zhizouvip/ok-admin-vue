@@ -1,9 +1,9 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 type TypeConfig = {
-  key: 'sidebarInverted' | 'headerInverted' | 'collapsed' | 'tagShow';
-  value: boolean;
-};
+  key: 'sidebarInverted' | 'headerInverted' | 'collapsed' | 'tagShow'
+  value: boolean
+}
 
 export default defineStore('adminStore', {
   state: () => ({
@@ -18,35 +18,35 @@ export default defineStore('adminStore', {
   }),
   actions: {
     SET_LAYTAGS(key: any) {
-      this.layTags = key;
+      this.layTags = key
     },
     SET_LAYCONFIG: function (config: TypeConfig) {
-      this.layConfig[config.key] = config.value;
+      this.layConfig[config.key] = config.value
     },
     SET_LAYCONFIGS(config: any) {
-      this.layConfig = config;
+      this.layConfig = config
     },
     ADD_KEEPALIVES(routeName: string) {
       if (this.keepAlives.indexOf(routeName) < 0) {
-        this.keepAlives.push(routeName);
+        this.keepAlives.push(routeName)
       }
     },
     DEL_KEEPALIVES(routeName: string) {
-      const indexKeepAlives = this.keepAlives.indexOf(routeName);
+      const indexKeepAlives = this.keepAlives.indexOf(routeName)
       if (indexKeepAlives >= 0) {
-        this.keepAlives.splice(indexKeepAlives, 1);
+        this.keepAlives.splice(indexKeepAlives, 1)
       }
     }
   },
   getters: {
     keepAlivesGetter: (state) => {
-      return state.keepAlives;
+      return state.keepAlives
     },
     layTagsGetter: (state) => {
-      return state.layTags;
+      return state.layTags
     },
     layConfigGetter: (state) => {
-      return state.layConfig;
+      return state.layConfig
     }
   }
-});
+})

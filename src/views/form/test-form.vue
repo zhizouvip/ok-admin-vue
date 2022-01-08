@@ -4,16 +4,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-export default defineComponent({
-  name: "test-form",
-  setup(){
-    const value = ref('');
-    return {
-      value,
+  import { defineComponent, ref } from 'vue'
+  export default defineComponent({
+    name: 'test-form',
+    setup() {
+      const value = ref('')
+      return {
+        value
+      }
     }
-  }
-});
+  })
 </script>
 
 <style></style>

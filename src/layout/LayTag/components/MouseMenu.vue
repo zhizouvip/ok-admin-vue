@@ -13,10 +13,10 @@
   />
 </template>
 
-<script lang='ts'>
-import { defineComponent, ref } from 'vue';
-import { NDropdown } from 'naive-ui';
-import { menuOptions } from '../utils/tagMenu.ts';
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+import { NDropdown } from 'naive-ui'
+import { menuOptions } from '../utils/tagMenu'
 export default defineComponent({
   name: 'MouseMenu',
   props: ['handleMenuSelect'],

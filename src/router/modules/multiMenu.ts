@@ -1,13 +1,13 @@
-import { TrailSignOutline } from '@vicons/ionicons5';
-import Layout from '@/layout/index.vue';
-import IFrameView from '@/layout/IFrameView.vue';
-import { RouterView } from 'vue-router';
-import { Component, createBlock, createVNode } from 'vue';
-import { reloadComponent } from '../utils/routerComponent.ts';
-
+import { TrailSignOutline } from '@vicons/ionicons5'
+import Layout from '@/layout/index.vue'
+import IFrameView from '@/layout/IFrameView.vue'
+import { RouterView, RouteRecordRaw } from 'vue-router'
+import { Component, createBlock, createVNode } from 'vue'
+import { reloadComponent } from '../utils/routerComponent.ts'
 const componentLinkView = (src: string) => {
-  return reloadComponent(createVNode(IFrameView, { src }));
-};
+  return reloadComponent(createVNode(IFrameView, { src }))
+}
+
 export default {
   path: '/multi',
   component: Layout as unknown as Component,
@@ -84,7 +84,7 @@ export default {
               return createBlock('div', {}, [
                 createVNode('span', { a: 'asf' }, '菜单3.1'),
                 createVNode('div', {}, '有点搞头')
-              ]);
+              ])
             }
           },
           meta: {
@@ -96,7 +96,7 @@ export default {
           name: 'menu-three-two',
           component: {
             render() {
-              return createBlock('div', {}, '菜单3.2');
+              return createBlock('div', {}, '菜单3.2')
             }
           },
           meta: {
@@ -108,7 +108,7 @@ export default {
           name: 'menu-three-three',
           component: {
             render() {
-              return createVNode('div', {}, '菜单3.3');
+              return createVNode('div', {}, '菜单3.3')
             }
           },
           meta: {
@@ -131,7 +131,7 @@ export default {
                   return createBlock('div', {}, [
                     createVNode('span', { a: 'asf' }, '菜单3.4.1'),
                     createVNode('div', {}, '有点搞头')
-                  ]);
+                  ])
                 }
               },
               meta: {
@@ -143,7 +143,7 @@ export default {
               name: 'menu-three-four-two',
               component: {
                 render() {
-                  return createBlock('div', {}, '菜单3.4.2');
+                  return createBlock('div', {}, '菜单3.4.2')
                 }
               },
               meta: {
@@ -155,7 +155,7 @@ export default {
               name: 'menu-three-four-three',
               component: {
                 render() {
-                  return createVNode('div', {}, '菜单3.4.3');
+                  return createVNode('div', {}, '菜单3.4.3')
                 }
               },
               meta: {
@@ -167,4 +167,4 @@ export default {
       ]
     }
   ]
-};
+} as RouteRecordRaw

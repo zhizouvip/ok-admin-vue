@@ -1,9 +1,9 @@
-import type { UserConfig, ConfigEnv } from 'vite';
-import { loadEnv, defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
-import { visualizer } from 'rollup-plugin-visualizer';
-import path from 'path';
+import type { UserConfig, ConfigEnv } from 'vite'
+import { loadEnv, defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import { visualizer } from 'rollup-plugin-visualizer'
+import path from 'path'
 
 // https://cn.vitejs.dev/config/#build-assetsdir
 // https://vitejs.dev/config/
@@ -12,8 +12,8 @@ import path from 'path';
 // const dotenv = require("dotenv")
 
 export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
-  const root = process.cwd();
-  const env = loadEnv(mode, root);
+  const root = process.cwd()
+  const env = loadEnv(mode, root)
 
   return {
     plugins: [vue(), vueJsx(), visualizer()],
@@ -41,5 +41,5 @@ export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
         }
       }
     } */
-  };
-});
+  }
+})

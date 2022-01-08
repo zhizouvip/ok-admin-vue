@@ -1,5 +1,5 @@
-import theme from '@/setting/theme.ts';
-import { defineStore } from 'pinia';
+import theme from '@/setting/theme.ts'
+import { defineStore } from 'pinia'
 export default defineStore('themeStore', {
   state: () => ({
     isDarkTheme: theme.isDarkTheme, // 是否是暗夜主题
@@ -8,21 +8,21 @@ export default defineStore('themeStore', {
   }),
   actions: {
     SET_APPTHEME(theme: string) {
-      this.appTheme = theme;
+      this.appTheme = theme
     },
     SET_ISDARKTHEME(isDarkTheme: boolean) {
-      this.isDarkTheme = isDarkTheme;
+      this.isDarkTheme = isDarkTheme
     }
   },
   getters: {
     isDarkThemeGetter: (state) => {
-      return state.isDarkTheme;
+      return state.isDarkTheme
     },
     appThemeGetter: (state) => {
-      return state.appTheme;
+      return state.appTheme
     },
     appThemeListGetter(): Array<string> {
-      return this.appThemeList;
+      return this.appThemeList
     }
   }
-});
+})

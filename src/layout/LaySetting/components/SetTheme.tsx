@@ -1,22 +1,22 @@
-import './style.scss';
-import { defineComponent } from 'vue';
-import useThemeStore from '@/store/themeStore.ts';
-import { NDivider, NGrid, NGi, NIcon } from 'naive-ui';
-import { CheckmarkSharp } from '@vicons/ionicons5';
+import './style.scss'
+import { defineComponent } from 'vue'
+import useThemeStore from '@/store/themeStore.ts'
+import { NDivider, NGrid, NGi, NIcon } from 'naive-ui'
+import { CheckmarkSharp } from '@vicons/ionicons5'
 export default defineComponent({
   name: 'SetTheme',
   setup() {
-    const themeStore = useThemeStore();
+    const themeStore = useThemeStore()
     return {
       themeStore,
       handleTheme(themeColor: any) {
-        themeStore.SET_APPTHEME(themeColor);
+        themeStore.SET_APPTHEME(themeColor)
       }
-    };
+    }
   },
   render: function () {
-    const appTheme = this.themeStore.appTheme;
-    const appThemeList = this.themeStore.appThemeList;
+    const appTheme = this.themeStore.appTheme
+    const appThemeList = this.themeStore.appThemeList
 
     return (
       <div class="set-theme padding-bottom-10">
@@ -35,10 +35,10 @@ export default defineComponent({
                   </NIcon>
                 </div>
               </NGi>
-            );
+            )
           })}
         </NGrid>
       </div>
-    );
+    )
   }
-});
+})

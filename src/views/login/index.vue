@@ -26,79 +26,79 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
-import { useRouter } from 'vue-router';
-import { PersonOutline, LockClosedOutline, LogoGithub, LogoFacebook } from '@vicons/ionicons5';
+  import { defineComponent, reactive } from 'vue'
+  import { useRouter } from 'vue-router'
+  import { PersonOutline, LockClosedOutline, LogoGithub, LogoFacebook } from '@vicons/ionicons5'
 
-export default defineComponent({
-  name: 'Login',
-  components: {
-    PersonOutline,
-    LockClosedOutline,
-    LogoGithub,
-    LogoFacebook
-  },
-  setup() {
-    const router = useRouter();
-    const formData = reactive({
-      username: 'admin',
-      password: '123456'
-    });
-    return {
-      formData,
-      logo: import('@/assets/logo.png'),
-      handleSubmit() {
-        router.replace('/dashboard/control');
-      },
-      rules: {
-        username: {
-          required: true,
-          message: '请输入用户名！',
-          trigger: 'blur'
+  export default defineComponent({
+    name: 'Login',
+    components: {
+      PersonOutline,
+      LockClosedOutline,
+      LogoGithub,
+      LogoFacebook
+    },
+    setup() {
+      const router = useRouter()
+      const formData = reactive({
+        username: 'admin',
+        password: '123456'
+      })
+      return {
+        formData,
+        logo: import('@/assets/logo.png'),
+        handleSubmit() {
+          router.replace('/dashboard/control')
         },
-        password: { required: true, message: '请输入密码！', trigger: 'blur' }
+        rules: {
+          username: {
+            required: true,
+            message: '请输入用户名！',
+            trigger: 'blur'
+          },
+          password: { required: true, message: '请输入密码！', trigger: 'blur' }
+        }
       }
-    };
-  }
-});
+    }
+  })
 </script>
 
 <style lang="scss" scoped>
-.view-account {
-  display: flex;
-  height: 100vh;
-  overflow: auto;
-  &-top {
-    padding: 12px 0;
-    text-align: center;
-    .img {
-      width: 80%;
-    }
-    .text {
-      font-size: 16px;
-      padding: 12px 0;
-      color: #666666;
-    }
-  }
-  &-container {
-    padding: 48px 24px;
-    max-width: 384px;
-    margin: 0 auto;
-  }
-
-  &-cont {
-    padding: 10px 0;
-  }
-}
-.other {
-  width: 100%;
-}
-@media (min-width: 768px) {
   .view-account {
-    background-image: url('@/assets/images/login.svg');
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: 100%;
+    display: flex;
+    height: 100vh;
+    overflow: auto;
+    &-top {
+      padding: 12px 0;
+      text-align: center;
+      .img {
+        width: 80%;
+      }
+      .text {
+        font-size: 16px;
+        padding: 12px 0;
+        color: #666666;
+      }
+    }
+    &-container {
+      padding: 48px 24px;
+      max-width: 384px;
+      margin: 0 auto;
+    }
+
+    &-cont {
+      padding: 10px 0;
+    }
   }
-}
+  .other {
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    .view-account {
+      background-image: url('@/assets/images/login.svg');
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: 100%;
+    }
+  }
 </style>

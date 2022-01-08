@@ -2,9 +2,9 @@
  * 菜单切换组件
  */
 
-import { inject, defineComponent } from 'vue';
-import useAdminStore from '@/store/adminStore.ts';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@/icon/antd-icon/index.ts';
+import { inject, defineComponent } from 'vue'
+import useAdminStore from '@/store/adminStore.ts'
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@/icon/antd-icon/index.ts'
 
 export default defineComponent({
   name: 'ButtonMenu',
@@ -15,15 +15,15 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const adminStore = useAdminStore();
-    const mobileOptions = inject('mobileOptions') as any;
-    const layConfig: any = adminStore.layConfigGetter;
+    const adminStore = useAdminStore()
+    const mobileOptions = inject('mobileOptions') as any
+    const layConfig: any = adminStore.layConfigGetter
 
     function hanldeMenu() {
       if (mobileOptions.isMobile) {
-        mobileOptions.showMobileSlidebar = true;
+        mobileOptions.showMobileSlidebar = true
       } else {
-        layConfig.collapsed = !layConfig.collapsed;
+        layConfig.collapsed = !layConfig.collapsed
       }
     }
     return () => (
@@ -33,6 +33,6 @@ export default defineComponent({
           <MenuFoldOutlined v-show={!layConfig.collapsed} />
         </n-icon>
       </div>
-    );
+    )
   }
-});
+})

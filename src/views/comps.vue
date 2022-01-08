@@ -2,10 +2,10 @@
   <div class="box"> {{ hello }} </div>
 </template>
 <script lang="ts">
-  import { ref } from 'vue';
+  import { ref } from 'vue'
   export default {
-    setup(){
-      const hello = ref('hello world');
+    setup() {
+      const hello = ref('hello world')
       return { hello }
     }
   }

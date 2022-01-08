@@ -1,6 +1,6 @@
-import { Component } from 'vue';
-import { createRouter, createWebHashHistory, RouteRecordRaw, RouterView } from 'vue-router';
-import Layout from '@/layout/index.vue';
+import { Component } from 'vue'
+import { createRouter, createWebHashHistory, RouteRecordRaw, RouterView } from 'vue-router'
+import Layout from '@/layout/index.vue'
 import {
   SpeedometerOutline,
   HomeOutline,
@@ -10,27 +10,27 @@ import {
   ColorPaletteOutline,
   WarningOutline,
   ListCircleOutline
-} from '@vicons/ionicons5';
-import multiMenu from './modules/multiMenu.ts'; // 多级菜单
+} from '@vicons/ionicons5'
+import multiMenu from './modules/multiMenu' // 多级菜单
 
-import routerComponent from './utils/routerComponent.ts';
-import routerReload from './utils/routerReload.vue';
-import routerGuard from './utils/routerGuard.ts';
-import routerFormat from './utils/routerFormat.ts';
+import routerComponent from './utils/routerComponent'
+import routerReload from './utils/routerReload.vue'
+import routerGuard from './utils/routerGuard'
+import routerFormat from './utils/routerFormat'
 
 // meta菜单设置的选项说明
 export type IMeta = {
-  title?: string; // 页面标题
-  tagHidden?: boolean; // 是否需要显示在tab上
-  keepAlive?: boolean; // 是否缓存页面
-  hidden?: boolean; // 是否不显示在左侧菜单栏上
-  icon?: Component; // 菜单图标
-  affix?: boolean; // 初始在tags是否一直悬挂不被关闭
-  href?: string; // 跳转到外部链接的地址(设置了此项点击将会跳转到其他网站)
-};
+  title?: string // 页面标题
+  tagHidden?: boolean // 是否需要显示在tab上
+  keepAlive?: boolean // 是否缓存页面
+  hidden?: boolean // 是否不显示在左侧菜单栏上
+  icon?: Component // 菜单图标
+  affix?: boolean // 初始在tags是否一直悬挂不被关闭
+  href?: string // 跳转到外部链接的地址(设置了此项点击将会跳转到其他网站)
+}
 
 // 是否是白天 5-17
-const isDayTime = 4 < new Date().getHours() && new Date().getHours() < 18;
+const isDayTime = 4 < new Date().getHours() && new Date().getHours() < 18
 
 // Layout框架路由页面
 export const asyncRoutes: Array<RouteRecordRaw> = [
@@ -149,7 +149,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     component: Layout as unknown as Component,
     redirect: '/list/table-list',
     meta: {
-      title: '表格',
+      title: '列表',
       icon: ListCircleOutline
     },
     children: [
@@ -224,7 +224,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     ]
   },
   multiMenu
-];
+]
 
 // 常规路由页面
 const constantRouters: Array<RouteRecordRaw> = [
@@ -236,19 +236,19 @@ const constantRouters: Array<RouteRecordRaw> = [
       title: '登录'
     }
   }
-];
+]
 
 // 重新组装layout路由
-const layoutRouters: RouteRecordRaw = routerFormat(asyncRoutes);
+const layoutRouters: Array<RouteRecordRaw> = routerFormat(asyncRoutes)
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: constantRouters.concat(layoutRouters), // .concat(asyncRoutes)
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 })
-});
+})
 
 // 路由守卫
-routerGuard(router);
+routerGuard(router)
 
-export default router;
+export default router

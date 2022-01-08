@@ -56,103 +56,103 @@
 </template>
 
 <script lang="ts">
-import { useRoute } from 'vue-router';
-import useThemeStore from '@/store/themeStore.ts';
-import { defineComponent, computed, ref, watchEffect } from 'vue';
-import { LockClosed } from '@/icon/material-icon/index.ts';
-import { GlobeOutline, SettingsOutline } from '@vicons/ionicons5';
-import { NGi, NGrid, NBreadcrumb, NBreadcrumbItem, NIcon, NDropdown } from 'naive-ui';
-import { ButtonFullScreen, ButtonMenu, ButtonRefresh, UserMenu } from './components/index.ts';
-import LaySetting from '@/layout/LaySetting/index.vue';
+  import { useRoute } from 'vue-router'
+  import useThemeStore from '@/store/themeStore.ts'
+  import { defineComponent, computed, ref, watchEffect } from 'vue'
+  import { LockClosed } from '@/icon/material-icon/index.ts'
+  import { GlobeOutline, SettingsOutline } from '@vicons/ionicons5'
+  import { NGi, NGrid, NBreadcrumb, NBreadcrumbItem, NIcon, NDropdown } from 'naive-ui'
+  import { ButtonFullScreen, ButtonMenu, ButtonRefresh, UserMenu } from './components/index.ts'
+  import LaySetting from '@/layout/LaySetting/index.vue'
 
-export default defineComponent({
-  name: 'LayHeader',
-  components: {
-    NGi,
-    NGrid,
-    NIcon,
-    NBreadcrumb,
-    NBreadcrumbItem,
-    NDropdown,
-    LaySetting,
-    GlobeOutline,
-    SettingsOutline,
-    UserMenu,
-    LockClosed,
-    ButtonMenu,
-    ButtonRefresh,
-    ButtonFullScreen
-  },
-  setup() {
-    const themeStore = useThemeStore();
-    const route = useRoute();
-    const setShow = ref(false);
-    const hoverColor = computed(() => {
-      return themeStore.isDarkThemeGetter ? '#101014' : '#f8f8f9'
-    });
-    let matcheds = ref([] as Array<string>);
+  export default defineComponent({
+    name: 'LayHeader',
+    components: {
+      NGi,
+      NGrid,
+      NIcon,
+      NBreadcrumb,
+      NBreadcrumbItem,
+      NDropdown,
+      LaySetting,
+      GlobeOutline,
+      SettingsOutline,
+      UserMenu,
+      LockClosed,
+      ButtonMenu,
+      ButtonRefresh,
+      ButtonFullScreen
+    },
+    setup() {
+      const themeStore = useThemeStore()
+      const route = useRoute()
+      const setShow = ref(false)
+      const hoverColor = computed(() => {
+        return themeStore.isDarkThemeGetter ? '#101014' : '#f8f8f9'
+      })
+      let matcheds = ref([] as Array<string>)
 
-    watchEffect(() => {
-      // 面包屑
-      matcheds.value = [];
-      const matched = route.matched;
-      for (let i = 0; i < matched.length; i++) {
-        matcheds.value.push(matched[i].meta.title as string);
-      }
-    });
-
-    return {
-      setShow,
-      matcheds,
-      hoverColor,
-      optionsISO: [
-        {
-          label: '简体中文',
-          key: 'zh'
-        },
-        {
-          label: 'English',
-          key: 'en'
+      watchEffect(() => {
+        // 面包屑
+        matcheds.value = []
+        const matched = route.matched
+        for (let i = 0; i < matched.length; i++) {
+          matcheds.value.push(matched[i].meta.title as string)
         }
-      ],
-      handleSelect: (val: any) => {
-        console.log(val);
+      })
+
+      return {
+        setShow,
+        matcheds,
+        hoverColor,
+        optionsISO: [
+          {
+            label: '简体中文',
+            key: 'zh'
+          },
+          {
+            label: 'English',
+            key: 'en'
+          }
+        ],
+        handleSelect: (val: any) => {
+          console.log(val)
+        }
       }
-    };
-  }
-});
+    }
+  })
 </script>
 
 <style lang="scss" scoped>
-.lay-header {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.flex-center {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-left {
-  display: flex;
-  padding: 0 6px;
-  align-items: center;
-}
-.header-right {
-  display: flex;
-  padding: 0 6px;
-  align-items: center;
-  justify-content: flex-end;
-}
-.btn-content {
-  height: 64px;
-  box-sizing: border-box;
-  transition: all 0.25s;
-  padding: 0 12px;
-  &:hover {
-    background: v-bind(hoverColor);
+  .lay-header {
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
-}
+  .flex-center {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-left {
+    display: flex;
+    padding: 0 6px;
+    align-items: center;
+  }
+  .header-right {
+    display: flex;
+    padding: 0 6px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .btn-content {
+    height: 64px;
+    box-sizing: border-box;
+    transition: all 0.25s;
+    padding: 0 12px;
+    &:hover {
+      background: v-bind(hoverColor);
+    }
+  }
 </style>
