@@ -11,7 +11,8 @@
     "types": ["node"],
     "jsx": "preserve",
     "sourceMap": true,
-    "skipLibCheck": false,
+    // 忽略所有的声明文件（ *.d.ts）的类型检查。
+    "skipLibCheck": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "typeRoots": ["node_modules/@types"],
