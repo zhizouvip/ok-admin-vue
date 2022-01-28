@@ -1,14 +1,9 @@
 <template>
   <div class="box"> {{ hello }} </div>
 </template>
-<script lang="ts">
+<script setup lang="ts">
   import { ref } from 'vue'
-  export default {
-    setup() {
-      const hello = ref('hello world')
-      return { hello }
-    }
-  }
+  const hello = ref('hello world')
 </script>
 <style lang="scss" scoped>
   .box {

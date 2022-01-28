@@ -12,7 +12,7 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
   export default defineComponent({
-    name: 'routerReload',
+    name: 'RouterReload',
     setup() {}
   })
 </script>

@@ -1,12 +1,10 @@
 .set-dark {
   text-align: center;
-  &-switch {
-    background-color: #101014;
-    border-radius: calc(var(--rail-height) / 2);
-  }
+
   &-icon {
     color: #fadb14;
   }
+
   .n-switch.n-switch--active .n-switch__rail {
     background-color: transparent;
   }
@@ -29,17 +27,21 @@
   .setting-btn {
     padding: 5px;
   }
+
   .thenme {
     padding-bottom: 10px;
   }
+
   .thenme-checkbox,
   .checked {
     display: flex;
     justify-content: center;
   }
+
   .thenme-checkbox {
     padding-bottom: 5px;
   }
+
   .checked-color {
     color: var(--primary-color);
   }
@@ -49,6 +51,7 @@
 .set-other {
   display: flex;
   justify-content: space-between;
+
   .tit {
     font-size: 14px;
   }

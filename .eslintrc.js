@@ -12,6 +12,13 @@ module.exports = {
     node: true,
     es6: true
   },
+  globals: {
+    // 针对@typescript-eslint/parser版本4+及其以上找不到NodeJS问题处理
+    NodeJS: true,
+    // vue3使用setup时自动引入的编译宏
+    defineProps: 'readonly',
+    defineEmits: 'readonly'
+  },
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
@@ -23,22 +30,26 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-essential', // vue3核心的eslint规则
-
-    'eslint:recommended', // eslint建议的规则
-    'plugin:vue/vue3-recommended', // 强制执行主观社区默认值的规则，以确保一致性。
+    'plugin:vue/vue3-recommended', // vue3推荐的强制执行主观社区默认值的规则，以确保一致性。
+    'plugin:vue/vue3-strongly-recommended', //  vue3推荐的依赖规则提高可读性
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
-    'plugin:recommended',
+    'eslint:recommended', // eslint建议的规则
+    '@vue/prettier',
     'prettier'
+    // '@vue/prettier/@typescript-eslint'
   ],
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'warn',
     'vue/no-unused-components': 'off',
     'vue/no-unused-vars': 'off',
-    'no-console': ['error', { allow: ['warn', 'error'] }], // 禁用 console
-    '@typescript-eslint/no-console': ['error', { allow: ['warn', 'error'] }], // 禁用 console
+    // 关闭文件有多个组件的警告
+    'vue/one-component-per-file': 'off',
+    // 关闭 console的提示
+    'no-console': ['off', { allow: ['warn', 'error'] }],
+    // 关闭 console的提示
+    '@typescript-eslint/no-console': ['off', { allow: ['warn', 'error'] }],
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -49,20 +60,13 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    // 未使用的变量值不做提示
     '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        argsIgnorePattern: '^h$',
-        varsIgnorePattern: '^h$'
-      }
+      'off',
+      { argsIgnorePattern: '^h$', varsIgnorePattern: '^h$' }
     ],
-    'no-unused-vars': [
-      'error',
-      {
-        argsIgnorePattern: '^h$',
-        varsIgnorePattern: '^h$'
-      }
-    ],
+    // 未使用的变量值不做提示
+    'no-unused-vars': ['off', { argsIgnorePattern: '^h$', varsIgnorePattern: '^h$' }],
     'space-before-function-paren': 'off',
     quotes: ['error', 'single'],
     'comma-dangle': ['error', 'never'],

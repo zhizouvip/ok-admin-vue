@@ -3,8 +3,8 @@
  */
 
 import { inject, defineComponent } from 'vue'
-import useAdminStore from '@/store/adminStore.ts'
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@/icon/antd-icon/index.ts'
+import useAdminStore from '@/store/adminStore'
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@/icon/antd-icon/index'
 
 export default defineComponent({
   name: 'ButtonMenu',

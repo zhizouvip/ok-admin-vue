@@ -1,22 +1,30 @@
+/**
+ * @author ok-admin-vue
+ * @description http通用请求工具类
+ */
+
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 interface Data {
   [key: string]: unknown
 }
-
+/** 请求域名地址 */
 axios.defaults.baseURL = import.meta.env.VITE_APP_BASEURL + ''
+/** 默认请求头信息 */
 axios.defaults.headers.head['Content-Type'] = 'application/x-www-form-urlencoded'
-axios.defaults.headers.head['hello'] = 'test-hello-token'
+axios.defaults.headers.head['author'] = 'test-hello-token'
 
-// 请求超时的等待时间,覆写库的超时默认值
-// 现在，在超时前，所有请求都会等待 5 秒
+/**
+ * 请求超时的等待时间,覆写库的超时默认值
+ * 现在，在超时前，所有请求都会等待 5 秒
+ */
 axios.defaults.timeout = 5000
 
-// 全局请求拦截器
+/** 全局请求拦截器 */
 axios.interceptors.request.use(
   function (config: AxiosRequestConfig) {
     // 在发送请求之前做些什么 可更改请求的配置，比如在headers添加通用的token
-    if(config.headers){
+    if (config.headers) {
       config.headers['Authorization'] = 'ok-admin-vue' //设置token
     }
     return config
@@ -32,7 +40,7 @@ axios.interceptors.request.use(
   }
 )
 
-// 全局响应拦截器
+/** 全局响应拦截器 */
 axios.interceptors.response.use(
   function (response: AxiosResponse) {
     // 对响应数据做点什么 可指定返回的内容
@@ -55,7 +63,10 @@ axios.interceptors.response.use(
   }
 )
 
-const isData: Array<AxiosRequestConfig['method']> = ['POST', 'PUT', 'PATCH']
+/** 请求需要包装成data的请求方法 */
+const requestData: Array<AxiosRequestConfig['method']> = ['POST', 'PUT', 'PATCH']
+
+/** @description http请求对象 */
 const http = {
   _requestHandler(
     method: AxiosRequestConfig['method'] = 'GET',
@@ -66,7 +77,7 @@ const http = {
     data = data || {}
     config = config || {}
     method = method.toLocaleUpperCase() as AxiosRequestConfig['method']
-    if (isData.includes(method)) {
+    if (requestData.includes(method)) {
       config.data = data
     } else {
       config.params = data

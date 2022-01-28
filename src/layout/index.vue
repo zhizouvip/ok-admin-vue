@@ -44,8 +44,8 @@
 </template>
 
 <script lang="ts">
-  import useThemeStore from '@/store/themeStore.ts'
-  import useAdminStore from '@/store/adminStore.ts'
+  import useThemeStore from '@/store/themeStore'
+  import useAdminStore from '@/store/adminStore'
   import { useRoute } from 'vue-router'
   import { defineComponent, provide, reactive, computed, ref, nextTick, watch } from 'vue'
   import { NLayout, NLayoutHeader, NLayoutContent, NLayoutSider, useLoadingBar } from 'naive-ui'

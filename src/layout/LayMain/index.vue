@@ -6,17 +6,17 @@
   <router-view v-slot="{ Component, route }">
     <transition appear :name="route.meta.transition || 'fade'" mode="out-in">
       <keep-alive v-if="keepAlives" :include="keepAlives">
-        <component :key="route.fullPath" :is="Component" />
+        <component :is="Component" :key="route.fullPath" />
       </keep-alive>
-      <component v-else :is="Component" :key="route.fullPath" />
+      <component :is="Component" v-else :key="route.fullPath" />
     </transition>
   </router-view>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import useAdminStore from '@/store/adminStore.ts'
+  import useAdminStore from '@/store/adminStore'
   export default defineComponent({
-    name: 'layMain',
+    name: 'LayMain',
     setup() {
       const adminStore = useAdminStore()
       const keepAlives = adminStore.keepAlivesGetter

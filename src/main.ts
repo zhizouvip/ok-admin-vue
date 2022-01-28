@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { createPinia, Pinia } from 'pinia'
+import { createPinia } from 'pinia'
 import router from './router/router'
 import NaiveUi from './naiveui/index'
-import globalComponents from './plugins/globalComponents.ts'
+import globalComponents from './plugins/globalComponents'
 
 import './assets/css/app.scss'
 

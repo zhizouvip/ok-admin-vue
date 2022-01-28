@@ -10,8 +10,8 @@
       </div>
       <div class="view-account-cont">
         <n-input
-          type="password"
           v-model:value="formData.password"
+          type="password"
           show-password-toggle
           placeholder="密码"
           :maxlength="8"
@@ -19,7 +19,7 @@
       </div>
 
       <div class="view-account-cont">
-        <n-button @click="handleSubmit" class="other" size="large" type="primary">登录</n-button>
+        <n-button class="other" size="large" type="primary" @click="handleSubmit">登录</n-button>
       </div>
     </div>
   </div>

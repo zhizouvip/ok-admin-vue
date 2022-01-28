@@ -1,22 +1,20 @@
 /**
  * 页面全屏组件
  */
-
 import { ref, defineComponent } from 'vue'
 import { NIcon } from 'naive-ui'
 import { ExpandOutline, ContractOutline } from '@vicons/ionicons5'
 export default defineComponent({
   name: 'ButtonFullScreen',
+  components: { NIcon, ExpandOutline, ContractOutline },
   props: {
     size: {
       type: [Number, String],
       default: 18
     }
   },
-  components: { NIcon, ExpandOutline, ContractOutline },
   setup(props) {
-    let isFullScreen = ref(false)
-
+    const isFullScreen = ref(false)
     const handleScreen = () => {
       let el: any = ''
       let objFullScreen: any = ''

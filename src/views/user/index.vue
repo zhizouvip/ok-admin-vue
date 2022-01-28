@@ -9,9 +9,8 @@
       <n-button @click="toggleTagShow">测试{{ adminStore.layConfig }}</n-button>
     </div>
     <div style="width: 350px">
-      <router-link to="/asdfsa" custom>
-        <div>阿斯顿发简历卡萨丁了</div> </router-link
-      >文本颜色： <n-input v-model:value="color" />背景颜色：
+      <router-link to="/asdfsa" custom> <div>阿斯顿发简历卡萨丁了</div> </router-link>文本颜色：
+      <n-input v-model:value="color" />背景颜色：
       <n-input v-model:value="bgColor" />
     </div>
     <div class="user-info">个人中心</div>
@@ -19,7 +18,7 @@
 </template>
 <script setup lang="ts">
   import { ref } from 'vue'
-  import useAdminStore from '@/store/adminStore.ts'
+  import useAdminStore from '@/store/adminStore'
 
   const hello = ref(5)
 

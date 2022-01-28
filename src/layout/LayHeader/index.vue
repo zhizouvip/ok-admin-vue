@@ -31,7 +31,7 @@
           <button-full-screen xs-hidden size="18" />
 
           <!-- 语言切换 -->
-          <n-dropdown trigger="hover" @select="handleSelect" :options="optionsISO">
+          <n-dropdown trigger="hover" :options="optionsISO" @select="handleSelect">
             <div title="语言切换" xs-hidden class="flex-center btn-content lay-hover">
               <n-icon class="lay-hover" size="18">
                 <globe-outline />
@@ -43,7 +43,7 @@
           <user-menu />
 
           <!-- 系统设置 -->
-          <div @click="setShow = true" title="系统设置" class="flex-center btn-content lay-hover">
+          <div title="系统设置" class="flex-center btn-content lay-hover" @click="setShow = true">
             <n-icon class="setting-btn lay-hover" size="18">
               <settings-outline />
             </n-icon>
@@ -57,12 +57,12 @@
 
 <script lang="ts">
   import { useRoute } from 'vue-router'
-  import useThemeStore from '@/store/themeStore.ts'
   import { defineComponent, computed, ref, watchEffect } from 'vue'
-  import { LockClosed } from '@/icon/material-icon/index.ts'
   import { GlobeOutline, SettingsOutline } from '@vicons/ionicons5'
   import { NGi, NGrid, NBreadcrumb, NBreadcrumbItem, NIcon, NDropdown } from 'naive-ui'
-  import { ButtonFullScreen, ButtonMenu, ButtonRefresh, UserMenu } from './components/index.ts'
+  import useThemeStore from '@/store/themeStore'
+  import { LockClosed } from '@/icon/material-icon/index'
+  import { ButtonFullScreen, ButtonMenu, ButtonRefresh, UserMenu } from './components/index'
   import LaySetting from '@/layout/LaySetting/index.vue'
 
   export default defineComponent({
@@ -90,7 +90,7 @@
       const hoverColor = computed(() => {
         return themeStore.isDarkThemeGetter ? '#101014' : '#f8f8f9'
       })
-      let matcheds = ref([] as Array<string>)
+      const matcheds = ref([] as Array<string>)
 
       watchEffect(() => {
         // 面包屑

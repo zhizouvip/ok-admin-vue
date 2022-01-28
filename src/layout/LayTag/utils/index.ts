@@ -1,9 +1,9 @@
 import { RouteMeta } from 'vue-router'
 import { watch } from 'vue'
-import router, { asyncRoutes } from '@/router/router.ts'
+import router, { asyncRoutes } from '@/router/router'
 
 export type Tag = {
-  name?: string
+  name: string
   fullPath: string
   meta: RouteMeta
 }
@@ -62,7 +62,7 @@ export const tagsEffect = function (tags: Array<Tag>): void {
         const commp = matched[matched.length - 1].components.default
         // tag 不存在时
         tags.push({
-          name: commp.name,
+          name: commp.name || '',
           fullPath: to.fullPath,
           meta: to.meta
         })
@@ -78,7 +78,6 @@ export const tagsEffect = function (tags: Array<Tag>): void {
 
 /** @description tags水平滚动条动态处理 */
 export const tagsScroll = function (superBox: HTMLDivElement, tagConent: HTMLDivElement) {
-
   const layActive = tagConent.querySelector('.tag-active') as HTMLDivElement // 当前选中的tag
   if (!layActive) return
 

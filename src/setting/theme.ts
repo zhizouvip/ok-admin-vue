@@ -3,7 +3,9 @@
  * primaryColorFocus; 默认和primaryColorHover一样
  * primaryColorDisabled; 默认和primaryColor一样
  * */
-export interface ThemeType {
+
+/** @interface IThemeType类型 */
+export interface IThemeType {
   primaryColor: string
   primaryColorHover: string
   primaryColorPressed: string
@@ -154,10 +156,13 @@ export const appThemeList = {
   yellowColor
 }
 
+export type IAppThemeList = typeof appThemeList
+
 export default {
-  // 是否是暗夜主题
+  /** @name 是否是暗夜主题 */
   isDarkTheme: false,
-  // 默认主题色
-  appTheme: antdColor, //defaultColor,
+  /** @name 默认主题色 */
+  appTheme: defaultColor,
+  /** @name 主题列表 */
   appThemeList
 }

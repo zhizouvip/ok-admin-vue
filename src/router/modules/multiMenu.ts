@@ -3,7 +3,7 @@ import Layout from '@/layout/index.vue'
 import IFrameView from '@/layout/IFrameView.vue'
 import { RouterView, RouteRecordRaw } from 'vue-router'
 import { Component, createBlock, createVNode } from 'vue'
-import { reloadComponent } from '../utils/routerComponent.ts'
+import { reloadComponent } from '../utils/routerComponent'
 const componentLinkView = (src: string) => {
   return reloadComponent(createVNode(IFrameView, { src }))
 }

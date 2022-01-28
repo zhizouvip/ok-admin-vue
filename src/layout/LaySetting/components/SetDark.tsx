@@ -1,6 +1,6 @@
 import './style.scss'
 import { defineComponent, ref } from 'vue'
-import useThemeStore from '@/store/themeStore.ts'
+import useThemeStore from '@/store/themeStore'
 import { NSwitch, NIcon } from 'naive-ui'
 import { Sunny, Moon } from '@vicons/ionicons5'
 
@@ -22,7 +22,9 @@ export default defineComponent({
     return (
       <div class="set-dark">
         <NSwitch
-          class="set-dark-switch"
+          railStyle={() => {
+            return { background: '#101014' }
+          }}
           value={this.isDarkTheme}
           onUpdate:value={this.handleDarkTheme}
           v-slots={{

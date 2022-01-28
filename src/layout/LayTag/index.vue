@@ -1,18 +1,18 @@
 <template>
   <div class="lay-tag-box">
     <NScrollbar
-      style="flex: 1"
       ref="scrollbar"
+      style="flex: 1"
       :vertical-rail-style="{ bottom: 0 }"
       :scrollable="true"
       :x-scrollable="true"
     >
-      <mouse-menu :handleMenuSelect="handleMenuSelect">
-        <div class="lay-tag" ref="layTag">
+      <mouse-menu :handle-menu-select="handleMenuSelect">
+        <div ref="layTag" class="lay-tag">
           <div
             v-for="(item, index) in tags"
-            class="tag-item"
             :key="item.fullPath"
+            class="tag-item"
             :class="item.fullPath === $route.fullPath ? 'tag-active' : 'default'"
           >
             <div class="tag-cont">
@@ -25,9 +25,9 @@
                 <span>{{ item.meta.title }}</span>
                 <n-icon
                   v-if="!isAffix(item)"
-                  @click.stop="handleTagClose(index)"
                   :class="isDarkTheme ? '' : 'tag-close-hover'"
                   class="tag-close"
+                  @click.stop="handleTagClose(index)"
                 >
                   <close-sharp></close-sharp>
                 </n-icon>
@@ -41,7 +41,7 @@
       <n-dropdown
         trigger="hover"
         placement="bottom-end"
-        :onSelect="handleMenuSelect"
+        :on-select="handleMenuSelect"
         :options="menuOptions"
       >
         <n-button style="width: 32px; height: 32px">
@@ -59,15 +59,14 @@
   import { NButton, NDropdown, NIcon, NScrollbar } from 'naive-ui'
   import { computed, defineComponent, nextTick, onMounted, reactive, ref, watchEffect } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
-  import useThemeStore from '@/store/themeStore.ts'
-  import useAdminStore from '@/store/adminStore.ts'
+  import useThemeStore from '@/store/themeStore'
+  import useAdminStore from '@/store/adminStore'
   import { Tag, tagsEffect, tagsScroll } from './utils'
   import { closeMenu, menuOptions } from './utils/tagMenu'
   import MouseMenu from './components/MouseMenu.vue'
 
   export default defineComponent({
     name: 'LayTag',
-    inheritAttrs: false,
     components: {
       NIcon,
       NButton,
@@ -77,6 +76,7 @@
       CloseSharp,
       MouseMenu
     },
+    inheritAttrs: false,
     setup() {
       const router = useRouter(),
         route = useRoute(),

@@ -5,8 +5,8 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
   export default defineComponent({
-    name: 'basic-form'
+    name: 'BasicForm'
   })
 </script>
 
-<style></style>
+<style lang="scss"></style>

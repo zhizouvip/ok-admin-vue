@@ -4,8 +4,8 @@
 
 import '../index.scss'
 import { useRouter } from 'vue-router'
-import useThemeStore from '@/store/themeStore.ts'
-import useUserStore from '@/store/userStore.ts'
+import useThemeStore from '@/store/themeStore'
+import useUserStore from '@/store/userStore'
 import { defineComponent, Component, h, computed } from 'vue'
 import { NAvatar, NDropdown, NIcon } from 'naive-ui'
 import { PersonOutline, Power } from '@vicons/ionicons5'

@@ -1,6 +1,6 @@
 import './style.scss'
 import { defineComponent } from 'vue'
-import useAdminStore from '@/store/adminStore.ts'
+import useAdminStore from '@/store/adminStore'
 import navThemeDark from '../svg/nav-theme-dark.svg'
 import navThemeLight from '../svg/nav-theme-light.svg'
 import headerThemeDark from '../svg/header-theme-dark.svg'

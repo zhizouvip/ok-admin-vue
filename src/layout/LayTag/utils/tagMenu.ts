@@ -1,7 +1,7 @@
 import { h, Component } from 'vue'
 import { NIcon } from 'naive-ui'
-import useAdminStore from '@/store/adminStore.ts'
-import router from '@/router/router.ts'
+import useAdminStore from '@/store/adminStore'
+import router from '@/router/router'
 
 import {
   ArrowBackOutline,
@@ -51,10 +51,12 @@ export const closeMenu = function (key: string, tags: Array<Tag>) {
   const route = router.currentRoute.value
   const adminStore = useAdminStore()
   const thatIndex = tags.findIndex((tag) => tag.fullPath === route.fullPath)
-
+  /** 记录关闭左侧的元素 */
+  let tempIndexL = 0
+  /** 记录关闭右侧的元素 */
+  let tempIndexR = 0
   switch (key) {
     case 'closeLeft':
-      let tempIndexL = 0
       while (tags[tempIndexL].fullPath !== route.fullPath) {
         if (tags[tempIndexL].fullPath !== route.fullPath && !tags[tempIndexL].meta.affix) {
           const [temp] = tags.splice(tempIndexL, 1)
@@ -65,7 +67,7 @@ export const closeMenu = function (key: string, tags: Array<Tag>) {
       }
       break
     case 'closeRight':
-      let tempIndexR = thatIndex + 1
+      tempIndexR = thatIndex + 1
       while (tempIndexR < tags.length && tags[tempIndexR].fullPath !== route.fullPath) {
         if (tags[tempIndexR].fullPath !== route.fullPath && !tags[tempIndexR].meta.affix) {
           const [temp] = tags.splice(tempIndexR, 1)

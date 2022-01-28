@@ -5,8 +5,8 @@
 import { Component, h } from 'vue'
 import { RouteRecordRaw } from 'vue-router'
 import { NIcon, MenuOption, MenuGroupOption } from 'naive-ui'
-import { asyncRoutes } from '../../router/router'
-import { isURL } from '../utils/index.ts'
+import { asyncRoutes } from '@/router/router'
+import { isURL } from '../utils/index'
 
 /** @description 如果是网址那么返回地址，否则返回空字符串 */
 function getURL(meta: any): string {

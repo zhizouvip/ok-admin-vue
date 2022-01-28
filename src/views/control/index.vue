@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
   import { onMounted } from 'vue'
-  import http from '@/utils/http.ts'
+  import http from '@/utils/http'
   import Cards from '@/views/control/components/Cards.vue'
   import CardLink from '@/views/control/components/CardLink.vue'
   import Visits from '@/views/control/components/Visits.vue'
