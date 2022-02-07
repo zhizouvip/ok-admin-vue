@@ -24,7 +24,7 @@ specifiers:
   naive-ui: ^2.24.6
   pinia: ^2.0.10
   postcss: ^8.3.10
-  prettier: ^2.4.1
+  prettier: ^2.5.1
   rollup-plugin-visualizer: ^5.5.2
   sass: ^1.43.4
   sass-loader: ^12.3.0
@@ -72,7 +72,7 @@ devDependencies:
   eslint-plugin-vue: 7.20.0_eslint@7.32.0
   jest: 27.4.7
   postcss: 8.4.5
-  prettier: 2.5.1
+  prettier: registry.npmmirror.com/prettier/2.5.1
   rollup-plugin-visualizer: 5.5.4
   sass: 1.49.0
   sass-loader: 12.4.0_sass@1.49.0
@@ -1770,7 +1770,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       callsites: 3.1.0
-      graceful-fs: 4.2.9
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.9
       source-map: 0.6.1
     dev: true
 
@@ -1789,7 +1789,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/test-result': 27.4.6
-      graceful-fs: 4.2.9
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.9
       jest-haste-map: 27.4.6
       jest-runtime: 27.4.6
     transitivePeerDependencies:
@@ -2267,7 +2267,7 @@ packages:
       eslint: 7.32.0
       eslint-config-prettier: 8.3.0_eslint@7.32.0
       eslint-plugin-prettier: 4.0.0_6e6a25a49a944db0fa38418c3ba4bc86
-      prettier: 2.5.1
+      prettier: registry.npmmirror.com/prettier/2.5.1
     dev: true
 
   /@vue/reactivity-transform/3.2.29:
@@ -2899,7 +2899,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
   /ci-info/3.3.0:
@@ -3265,164 +3265,28 @@ packages:
     engines: {node: '>=0.12'}
     dev: true
 
-  /esbuild-android-arm64/0.13.15:
-    resolution: {integrity: sha512-m602nft/XXeO8YQPUDVoHfjyRVPdPgjyyXOxZ44MK/agewFFkPa8tUo6lAzSWh5Ui5PB4KR9UIFTSBKh/RrCmg==}
-    cpu: [arm64]
-    os: [android]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-darwin-64/0.13.15:
-    resolution: {integrity: sha512-ihOQRGs2yyp7t5bArCwnvn2Atr6X4axqPpEdCFPVp7iUj4cVSdisgvEKdNR7yH3JDjW6aQDw40iQFoTqejqxvQ==}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-darwin-arm64/0.13.15:
-    resolution: {integrity: sha512-i1FZssTVxUqNlJ6cBTj5YQj4imWy3m49RZRnHhLpefFIh0To05ow9DTrXROTE1urGTQCloFUXTX8QfGJy1P8dQ==}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-freebsd-64/0.13.15:
-    resolution: {integrity: sha512-G3dLBXUI6lC6Z09/x+WtXBXbOYQZ0E8TDBqvn7aMaOCzryJs8LyVXKY4CPnHFXZAbSwkCbqiPuSQ1+HhrNk7EA==}
-    cpu: [x64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-freebsd-arm64/0.13.15:
-    resolution: {integrity: sha512-KJx0fzEDf1uhNOZQStV4ujg30WlnwqUASaGSFPhznLM/bbheu9HhqZ6mJJZM32lkyfGJikw0jg7v3S0oAvtvQQ==}
-    cpu: [arm64]
-    os: [freebsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-32/0.13.15:
-    resolution: {integrity: sha512-ZvTBPk0YWCLMCXiFmD5EUtB30zIPvC5Itxz0mdTu/xZBbbHJftQgLWY49wEPSn2T/TxahYCRDWun5smRa0Tu+g==}
-    cpu: [ia32]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-64/0.13.15:
-    resolution: {integrity: sha512-eCKzkNSLywNeQTRBxJRQ0jxRCl2YWdMB3+PkWFo2BBQYC5mISLIVIjThNtn6HUNqua1pnvgP5xX0nHbZbPj5oA==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-arm/0.13.15:
-    resolution: {integrity: sha512-wUHttDi/ol0tD8ZgUMDH8Ef7IbDX+/UsWJOXaAyTdkT7Yy9ZBqPg8bgB/Dn3CZ9SBpNieozrPRHm0BGww7W/jA==}
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-arm64/0.13.15:
-    resolution: {integrity: sha512-bYpuUlN6qYU9slzr/ltyLTR9YTBS7qUDymO8SV7kjeNext61OdmqFAzuVZom+OLW1HPHseBfJ/JfdSlx8oTUoA==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-mips64le/0.13.15:
-    resolution: {integrity: sha512-KlVjIG828uFPyJkO/8gKwy9RbXhCEUeFsCGOJBepUlpa7G8/SeZgncUEz/tOOUJTcWMTmFMtdd3GElGyAtbSWg==}
-    cpu: [mips64el]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-linux-ppc64le/0.13.15:
-    resolution: {integrity: sha512-h6gYF+OsaqEuBjeesTBtUPw0bmiDu7eAeuc2OEH9S6mV9/jPhPdhOWzdeshb0BskRZxPhxPOjqZ+/OqLcxQwEQ==}
-    cpu: [ppc64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-netbsd-64/0.13.15:
-    resolution: {integrity: sha512-3+yE9emwoevLMyvu+iR3rsa+Xwhie7ZEHMGDQ6dkqP/ndFzRHkobHUKTe+NCApSqG5ce2z4rFu+NX/UHnxlh3w==}
-    cpu: [x64]
-    os: [netbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-openbsd-64/0.13.15:
-    resolution: {integrity: sha512-wTfvtwYJYAFL1fSs8yHIdf5GEE4NkbtbXtjLWjM3Cw8mmQKqsg8kTiqJ9NJQe5NX/5Qlo7Xd9r1yKMMkHllp5g==}
-    cpu: [x64]
-    os: [openbsd]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-sunos-64/0.13.15:
-    resolution: {integrity: sha512-lbivT9Bx3t1iWWrSnGyBP9ODriEvWDRiweAs69vI+miJoeKwHWOComSRukttbuzjZ8r1q0mQJ8Z7yUsDJ3hKdw==}
-    cpu: [x64]
-    os: [sunos]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-windows-32/0.13.15:
-    resolution: {integrity: sha512-fDMEf2g3SsJ599MBr50cY5ve5lP1wyVwTe6aLJsM01KtxyKkB4UT+fc5MXQFn3RLrAIAZOG+tHC+yXObpSn7Nw==}
-    cpu: [ia32]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-windows-64/0.13.15:
-    resolution: {integrity: sha512-9aMsPRGDWCd3bGjUIKG/ZOJPKsiztlxl/Q3C1XDswO6eNX/Jtwu4M+jb6YDH9hRSUflQWX0XKAfWzgy5Wk54JQ==}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /esbuild-windows-arm64/0.13.15:
-    resolution: {integrity: sha512-zzvyCVVpbwQQATaf3IG8mu1IwGEiDxKkYUdA4FpoCHi1KtPa13jeScYDjlW0Qh+ebWzpKfR2ZwvqAQkSWNcKjA==}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /esbuild/0.13.15:
     resolution: {integrity: sha512-raCxt02HBKv8RJxE8vkTSCXGIyKHdEdGfUmiYb8wnabnaEmHzyW7DCHb5tEN0xU8ryqg5xw54mcwnYkC4x3AIw==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      esbuild-android-arm64: 0.13.15
-      esbuild-darwin-64: 0.13.15
-      esbuild-darwin-arm64: 0.13.15
-      esbuild-freebsd-64: 0.13.15
-      esbuild-freebsd-arm64: 0.13.15
-      esbuild-linux-32: 0.13.15
-      esbuild-linux-64: 0.13.15
-      esbuild-linux-arm: 0.13.15
-      esbuild-linux-arm64: 0.13.15
-      esbuild-linux-mips64le: 0.13.15
-      esbuild-linux-ppc64le: 0.13.15
-      esbuild-netbsd-64: 0.13.15
-      esbuild-openbsd-64: 0.13.15
-      esbuild-sunos-64: 0.13.15
-      esbuild-windows-32: 0.13.15
-      esbuild-windows-64: 0.13.15
-      esbuild-windows-arm64: 0.13.15
+      esbuild-android-arm64: registry.npmmirror.com/esbuild-android-arm64/0.13.15
+      esbuild-darwin-64: registry.npmmirror.com/esbuild-darwin-64/0.13.15
+      esbuild-darwin-arm64: registry.npmmirror.com/esbuild-darwin-arm64/0.13.15
+      esbuild-freebsd-64: registry.npmmirror.com/esbuild-freebsd-64/0.13.15
+      esbuild-freebsd-arm64: registry.npmmirror.com/esbuild-freebsd-arm64/0.13.15
+      esbuild-linux-32: registry.npmmirror.com/esbuild-linux-32/0.13.15
+      esbuild-linux-64: registry.npmmirror.com/esbuild-linux-64/0.13.15
+      esbuild-linux-arm: registry.npmmirror.com/esbuild-linux-arm/0.13.15
+      esbuild-linux-arm64: registry.npmmirror.com/esbuild-linux-arm64/0.13.15
+      esbuild-linux-mips64le: registry.npmmirror.com/esbuild-linux-mips64le/0.13.15
+      esbuild-linux-ppc64le: registry.npmmirror.com/esbuild-linux-ppc64le/0.13.15
+      esbuild-netbsd-64: registry.npmmirror.com/esbuild-netbsd-64/0.13.15
+      esbuild-openbsd-64: registry.npmmirror.com/esbuild-openbsd-64/0.13.15
+      esbuild-sunos-64: registry.npmmirror.com/esbuild-sunos-64/0.13.15
+      esbuild-windows-32: registry.npmmirror.com/esbuild-windows-32/0.13.15
+      esbuild-windows-64: registry.npmmirror.com/esbuild-windows-64/0.13.15
+      esbuild-windows-arm64: registry.npmmirror.com/esbuild-windows-arm64/0.13.15
     dev: true
 
   /escalade/3.1.1:
@@ -3455,7 +3319,7 @@ packages:
       esutils: 2.0.3
       optionator: 0.8.3
     optionalDependencies:
-      source-map: 0.6.1
+      source-map: registry.npmmirror.com/source-map/0.6.1
     dev: true
 
   /eslint-config-prettier/8.3.0_eslint@7.32.0:
@@ -3480,7 +3344,7 @@ packages:
     dependencies:
       eslint: 7.32.0
       eslint-config-prettier: 8.3.0_eslint@7.32.0
-      prettier: 2.5.1
+      prettier: registry.npmmirror.com/prettier/2.5.1
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -3497,7 +3361,7 @@ packages:
     dependencies:
       eslint: 7.32.0
       eslint-config-prettier: 8.3.0_eslint@7.32.0
-      prettier: 2.5.1
+      prettier: registry.npmmirror.com/prettier/2.5.1
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -3821,14 +3685,6 @@ packages:
   /fs.realpath/1.0.0:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
     dev: true
-
-  /fsevents/2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
 
   /function-bind/1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
@@ -4397,7 +4253,7 @@ packages:
       micromatch: 4.0.4
       walker: 1.0.8
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
   /jest-jasmine2/27.4.6:
@@ -4578,7 +4434,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@types/node': 17.0.10
-      graceful-fs: 4.2.9
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.9
     dev: true
 
   /jest-snapshot/27.4.6:
@@ -4800,7 +4656,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.9
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.9
     dev: true
 
   /jstransformer/1.0.0:
@@ -5238,12 +5094,6 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.5.1:
-    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
-    dev: true
-
   /pretty-format/27.4.6:
     resolution: {integrity: sha512-NblstegA1y/RJW2VyML+3LlpFjzx62cUrtBIKIWDXEDkjNeleA7Od7nrzcs/VLQvAeV4CgSYhrN39DRN88Qi/g==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -5526,7 +5376,7 @@ packages:
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
   /run-parallel/1.2.0:
@@ -6080,7 +5930,7 @@ packages:
       rollup: 2.66.0
       sass: 1.49.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
   /void-elements/3.1.0:
@@ -6494,3 +6344,205 @@ packages:
       y18n: 5.0.8
       yargs-parser: 21.0.0
     dev: true
+
+  registry.npmmirror.com/esbuild-android-arm64/0.13.15:
+    resolution: {integrity: sha512-m602nft/XXeO8YQPUDVoHfjyRVPdPgjyyXOxZ44MK/agewFFkPa8tUo6lAzSWh5Ui5PB4KR9UIFTSBKh/RrCmg==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-android-arm64/-/esbuild-android-arm64-0.13.15.tgz}
+    name: esbuild-android-arm64
+    version: 0.13.15
+    cpu: [arm64]
+    os: [android]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-darwin-64/0.13.15:
+    resolution: {integrity: sha512-ihOQRGs2yyp7t5bArCwnvn2Atr6X4axqPpEdCFPVp7iUj4cVSdisgvEKdNR7yH3JDjW6aQDw40iQFoTqejqxvQ==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-darwin-64/-/esbuild-darwin-64-0.13.15.tgz}
+    name: esbuild-darwin-64
+    version: 0.13.15
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-darwin-arm64/0.13.15:
+    resolution: {integrity: sha512-i1FZssTVxUqNlJ6cBTj5YQj4imWy3m49RZRnHhLpefFIh0To05ow9DTrXROTE1urGTQCloFUXTX8QfGJy1P8dQ==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.13.15.tgz}
+    name: esbuild-darwin-arm64
+    version: 0.13.15
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-freebsd-64/0.13.15:
+    resolution: {integrity: sha512-G3dLBXUI6lC6Z09/x+WtXBXbOYQZ0E8TDBqvn7aMaOCzryJs8LyVXKY4CPnHFXZAbSwkCbqiPuSQ1+HhrNk7EA==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-freebsd-64/-/esbuild-freebsd-64-0.13.15.tgz}
+    name: esbuild-freebsd-64
+    version: 0.13.15
+    cpu: [x64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-freebsd-arm64/0.13.15:
+    resolution: {integrity: sha512-KJx0fzEDf1uhNOZQStV4ujg30WlnwqUASaGSFPhznLM/bbheu9HhqZ6mJJZM32lkyfGJikw0jg7v3S0oAvtvQQ==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-freebsd-arm64/-/esbuild-freebsd-arm64-0.13.15.tgz}
+    name: esbuild-freebsd-arm64
+    version: 0.13.15
+    cpu: [arm64]
+    os: [freebsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-linux-32/0.13.15:
+    resolution: {integrity: sha512-ZvTBPk0YWCLMCXiFmD5EUtB30zIPvC5Itxz0mdTu/xZBbbHJftQgLWY49wEPSn2T/TxahYCRDWun5smRa0Tu+g==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-linux-32/-/esbuild-linux-32-0.13.15.tgz}
+    name: esbuild-linux-32
+    version: 0.13.15
+    cpu: [ia32]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-linux-64/0.13.15:
+    resolution: {integrity: sha512-eCKzkNSLywNeQTRBxJRQ0jxRCl2YWdMB3+PkWFo2BBQYC5mISLIVIjThNtn6HUNqua1pnvgP5xX0nHbZbPj5oA==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-linux-64/-/esbuild-linux-64-0.13.15.tgz}
+    name: esbuild-linux-64
+    version: 0.13.15
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-linux-arm/0.13.15:
+    resolution: {integrity: sha512-wUHttDi/ol0tD8ZgUMDH8Ef7IbDX+/UsWJOXaAyTdkT7Yy9ZBqPg8bgB/Dn3CZ9SBpNieozrPRHm0BGww7W/jA==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-linux-arm/-/esbuild-linux-arm-0.13.15.tgz}
+    name: esbuild-linux-arm
+    version: 0.13.15
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-linux-arm64/0.13.15:
+    resolution: {integrity: sha512-bYpuUlN6qYU9slzr/ltyLTR9YTBS7qUDymO8SV7kjeNext61OdmqFAzuVZom+OLW1HPHseBfJ/JfdSlx8oTUoA==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-linux-arm64/-/esbuild-linux-arm64-0.13.15.tgz}
+    name: esbuild-linux-arm64
+    version: 0.13.15
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-linux-mips64le/0.13.15:
+    resolution: {integrity: sha512-KlVjIG828uFPyJkO/8gKwy9RbXhCEUeFsCGOJBepUlpa7G8/SeZgncUEz/tOOUJTcWMTmFMtdd3GElGyAtbSWg==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-linux-mips64le/-/esbuild-linux-mips64le-0.13.15.tgz}
+    name: esbuild-linux-mips64le
+    version: 0.13.15
+    cpu: [mips64el]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-linux-ppc64le/0.13.15:
+    resolution: {integrity: sha512-h6gYF+OsaqEuBjeesTBtUPw0bmiDu7eAeuc2OEH9S6mV9/jPhPdhOWzdeshb0BskRZxPhxPOjqZ+/OqLcxQwEQ==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-linux-ppc64le/-/esbuild-linux-ppc64le-0.13.15.tgz}
+    name: esbuild-linux-ppc64le
+    version: 0.13.15
+    cpu: [ppc64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-netbsd-64/0.13.15:
+    resolution: {integrity: sha512-3+yE9emwoevLMyvu+iR3rsa+Xwhie7ZEHMGDQ6dkqP/ndFzRHkobHUKTe+NCApSqG5ce2z4rFu+NX/UHnxlh3w==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-netbsd-64/-/esbuild-netbsd-64-0.13.15.tgz}
+    name: esbuild-netbsd-64
+    version: 0.13.15
+    cpu: [x64]
+    os: [netbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-openbsd-64/0.13.15:
+    resolution: {integrity: sha512-wTfvtwYJYAFL1fSs8yHIdf5GEE4NkbtbXtjLWjM3Cw8mmQKqsg8kTiqJ9NJQe5NX/5Qlo7Xd9r1yKMMkHllp5g==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-openbsd-64/-/esbuild-openbsd-64-0.13.15.tgz}
+    name: esbuild-openbsd-64
+    version: 0.13.15
+    cpu: [x64]
+    os: [openbsd]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-sunos-64/0.13.15:
+    resolution: {integrity: sha512-lbivT9Bx3t1iWWrSnGyBP9ODriEvWDRiweAs69vI+miJoeKwHWOComSRukttbuzjZ8r1q0mQJ8Z7yUsDJ3hKdw==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-sunos-64/-/esbuild-sunos-64-0.13.15.tgz}
+    name: esbuild-sunos-64
+    version: 0.13.15
+    cpu: [x64]
+    os: [sunos]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-windows-32/0.13.15:
+    resolution: {integrity: sha512-fDMEf2g3SsJ599MBr50cY5ve5lP1wyVwTe6aLJsM01KtxyKkB4UT+fc5MXQFn3RLrAIAZOG+tHC+yXObpSn7Nw==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-windows-32/-/esbuild-windows-32-0.13.15.tgz}
+    name: esbuild-windows-32
+    version: 0.13.15
+    cpu: [ia32]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-windows-64/0.13.15:
+    resolution: {integrity: sha512-9aMsPRGDWCd3bGjUIKG/ZOJPKsiztlxl/Q3C1XDswO6eNX/Jtwu4M+jb6YDH9hRSUflQWX0XKAfWzgy5Wk54JQ==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-windows-64/-/esbuild-windows-64-0.13.15.tgz}
+    name: esbuild-windows-64
+    version: 0.13.15
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/esbuild-windows-arm64/0.13.15:
+    resolution: {integrity: sha512-zzvyCVVpbwQQATaf3IG8mu1IwGEiDxKkYUdA4FpoCHi1KtPa13jeScYDjlW0Qh+ebWzpKfR2ZwvqAQkSWNcKjA==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/esbuild-windows-arm64/-/esbuild-windows-arm64-0.13.15.tgz}
+    name: esbuild-windows-arm64
+    version: 0.13.15
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/fsevents/2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-2.3.2.tgz}
+    name: fsevents
+    version: 2.3.2
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/graceful-fs/4.2.9:
+    resolution: {integrity: sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.9.tgz}
+    name: graceful-fs
+    version: 4.2.9
+    dev: true
+
+  registry.npmmirror.com/prettier/2.5.1:
+    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/prettier/-/prettier-2.5.1.tgz}
+    name: prettier
+    version: 2.5.1
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  registry.npmmirror.com/source-map/0.6.1:
+    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==, registry: https://registry.nlark.com/, tarball: https://registry.npmmirror.com/source-map/-/source-map-0.6.1.tgz}
+    name: source-map
+    version: 0.6.1
+    engines: {node: '>=0.10.0'}
+    dev: true
+    optional: true

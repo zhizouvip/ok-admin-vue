@@ -15,7 +15,7 @@
     "dev-staging": "vite --mode staging",
     "build-staging": "vue-tsc --noEmit && vite build --mode staging",
     "serve": "vite preview",
-    "prettier:fix": "prettier --config .prettierrc.js --write ./src/**/*.{vue,ts,tsx,js,jsx,json}"
+    "prettier:fix": "prettier --config .prettierrc.js --write ./src/**/*.{vue,ts,tsx,js,jsx,json,css,scss,sass,less}"
   },
   "dependencies": {
     "@antv/g2": "^4.1.41",
@@ -48,7 +48,7 @@
     "eslint-plugin-vue": "^7.20.0",
     "jest": "^27.4.5",
     "postcss": "^8.3.10",
-    "prettier": "^2.4.1",
+    "prettier": "^2.5.1",
     "rollup-plugin-visualizer": "^5.5.2",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",

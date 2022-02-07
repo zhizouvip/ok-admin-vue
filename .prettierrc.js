@@ -17,5 +17,5 @@ module.exports = {
   requirePragma: false,
   proseWrap: 'never',
   htmlWhitespaceSensitivity: 'strict',
-  endOfLine: 'lf' // 换行格式 1.CRLF-回车符+换行符（\r\n） 2.LF仅\n换行（） 3.auto 维持现有的行尾
+  endOfLine: 'auto' // 换行格式 1.CRLF-回车符+换行符（\r\n） 2.LF仅\n换行（） 3.auto 维持现有的行尾
 }
